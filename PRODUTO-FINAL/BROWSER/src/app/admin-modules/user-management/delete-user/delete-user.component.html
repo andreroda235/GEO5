@@ -1,0 +1,43 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="60px">
+    <div fxFlex="100">
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+
+                <!-- Username Column -->
+                <ng-container matColumnDef="deleteUsername">
+                    <th mat-header-cell *matHeaderCellDef> Username </th>
+                    <td mat-cell *matCellDef="let element"> {{element.deleteUsername}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="deleteName">
+                    <th mat-header-cell *matHeaderCellDef> {{'Name'|translate}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.deleteName}} </td>
+                </ng-container>
+                
+                <!-- Email Column -->
+                <ng-container matColumnDef="deleteEmail">
+                    <th mat-header-cell *matHeaderCellDef> {{'Email'|translate}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.deleteEmail}} </td>
+                </ng-container>
+
+                <!-- Role Column -->
+                <ng-container matColumnDef="deleteRole">
+                    <th mat-header-cell *matHeaderCellDef> {{'Role'|translate}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.deleteRole}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>
+<br>
+<p></p>
+<h4>{{'DeleteAllUI'|translate}}</h4>
+<button id="delete" class="btn btn-success" (click)="deleteAllU()" >{{'Delete'|translate}}</button>
+<button type="button" class="btn btn-sm btn-outline-danger ml-2" (click)="cancel()">{{'Cancel'|translate}}</button>

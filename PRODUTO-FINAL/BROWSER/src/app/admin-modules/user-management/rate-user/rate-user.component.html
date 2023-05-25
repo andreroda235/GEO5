@@ -1,0 +1,93 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="60px">
+    <div fxFlex="100">
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+
+                <!-- Username Column -->
+                <ng-container matColumnDef="rateUsername">
+                    <th mat-header-cell *matHeaderCellDef> Username </th>
+                    <td mat-cell *matCellDef="let element"> {{element.rateUsername}} </td>
+                </ng-container>
+                                
+                <!-- Name Column -->
+                <ng-container matColumnDef="rateName">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.rateName}} </td>
+                </ng-container>
+
+                <!-- Email Column -->
+                <ng-container matColumnDef="rateEmail">
+                    <th mat-header-cell *matHeaderCellDef> {{'Email'|translate}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.rateEmail}} </td>
+                </ng-container>
+                
+                <!-- Account Inactive Column -->
+                <ng-container matColumnDef="active">
+                    <th mat-header-cell *matHeaderCellDef> {{'Active'|translate}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+                </ng-container>
+
+                 <!-- Positive Points Column -->
+                 <ng-container matColumnDef="posiPoints">
+                    <th mat-header-cell *matHeaderCellDef> {{'PositPoints'|translate}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.posiPoints}} </td>
+                </ng-container>
+
+                 <!-- Negative Points Column -->
+                 <ng-container matColumnDef="negPoints">
+                    <th mat-header-cell *matHeaderCellDef> {{'NegaPoints'|translate}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.negPoints}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<h4>{{'InactUAcc'|translate}}</h4>
+<form (ngSubmit)="onSubmitInact()">
+    <nb-card>
+        <nb-card-header></nb-card-header>
+        <nb-card-body>     
+
+            <mat-form-field appearance="simple">
+                <mat-label>{{'ERateUsername'|translate}}</mat-label>
+                <input matInput [formControl]="usernameInact" [(ngModel)]="userTargetI" required>
+                <mat-error *ngIf="usernameInact.invalid">{{'RUserNameError'|translate}}</mat-error>
+            </mat-form-field>
+
+        </nb-card-body>
+    </nb-card>
+    <br>
+        <p>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!usernameInact.valid">{{'Submit'|translate}}</button>
+        </p>            
+        <p></p>    
+</form>
+<br>
+<h4>{{'ActUAcc'|translate}}</h4>
+<form (ngSubmit)="onSubmitAct()">
+    <nb-card>
+        <nb-card-header></nb-card-header>
+        <nb-card-body>     
+
+            <mat-form-field appearance="simple">
+                <mat-label>{{'EARateUsername'|translate}}</mat-label>
+                <input matInput [formControl]="usernameAct" [(ngModel)]="userTargetA" required>
+                <mat-error *ngIf="usernameAct.invalid">{{'RUserNameError'|translate}}</mat-error>
+            </mat-form-field>
+
+        </nb-card-body>
+    </nb-card>
+    <br>
+        <p>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!usernameAct.valid">{{'Submit'|translate}}</button>
+        </p>            
+        <p></p>    
+</form>

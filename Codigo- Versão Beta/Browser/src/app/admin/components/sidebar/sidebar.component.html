@@ -1,0 +1,41 @@
+<mat-nav-list>
+    <div class = "profile-card">
+        <div class = "header">
+            <h2>Admin Name</h2>
+            <h4>Admin@email.com</h4>
+        </div>
+        <img src = "https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png" alt = "Admin Photo">
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Stats</h2>
+    <a mat-list-item routerLinkActive = "list-item-active" routerLink = "/admin">
+        <mat-icon>insert_chart_outlined</mat-icon>
+        Dashboard
+    </a>
+    <a mat-list-item routerLinkActive = "list-item-active" routerLink = "/admin/userReports">
+        <mat-icon>recent_actors</mat-icon>
+        Users Reports
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Management Tools</h2>
+
+    <a mat-list-item routerLinkActive = "list-item-active" routerLink = "/admin/adminTools">
+        <mat-icon>work_outline</mat-icon>
+        Admins Management
+    </a>
+
+    <a mat-list-item routerLinkActive = "list-item-active" routerLink = "/admin/userTools">
+        <mat-icon>supervisor_account</mat-icon>
+        User Management
+    </a>
+
+    <a mat-list-item routerLinkActive = "list-item-active" routerLink = "/admin/mapTools">
+        <mat-icon>map</mat-icon>
+        Map Management
+    </a>
+
+</mat-nav-list>

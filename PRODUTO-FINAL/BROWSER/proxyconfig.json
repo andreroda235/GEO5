@@ -1,0 +1,8 @@
+  
+{
+    "*": {
+        "target": "https://apdc-geoproj.ey.r.appspot.com",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

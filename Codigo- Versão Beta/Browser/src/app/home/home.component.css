@@ -1,0 +1,252 @@
+
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.maincomp {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    margin-left: 6rem;
+    padding: 1rem;
+  }
+body{
+    min-height: 100px;
+    
+}
+
+.section{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.subComp{
+    background-color: white;
+    top:0;
+    height: 30vh;
+}
+.section:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 100px;
+    background: linear-gradient(to top, var(--bg-primary), transparent);
+    z-index: 10000;
+}
+
+.section:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    mix-blend-mode: color;
+}
+
+
+#bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 80%;
+}
+#sol-00{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 90%;
+}
+
+#text{
+    position: relative;
+    width: 60%;
+    height: 60%;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 90%;
+    color: black;
+    font-size: 100px;  
+}
+
+#text2{
+    position: relative;
+    width: 60%;
+    height: 60%;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 90%;
+    color: black;
+    font-size: 100px;  
+}
+
+#img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 100%;
+}
+
+#Serra-Arrabida{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 80%;
+}
+#caminhantes-00{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 100%;
+}
+
+
+
+.f_ixed{
+    z-index: 10001;
+}
+span.f_ixed {
+    position: fixed;
+    top: 1rem;
+    right: 3rem;
+    font-family: sans-serif;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+select.f_ixed {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    background-color: var(--bg-primary);
+}
+select.f_ixed:hover{
+    transform: scale(1.2);
+}
+
+/**
+ * Tabs object.
+ *
+ * 1. Tables (kinda) for layout!
+ * 2. This is the magic bit; make all children occupy equal width.
+ * 3. Required to make the tabs fill their container.
+ * 4. Make each tab pack up horizontally.
+ * 5. Ensure the hit area covers the whole tab.
+ */
+ .tabs {
+    margin:  0;
+    padding: 0;
+    list-style: none;
+    display: table; /* [1] */
+    table-layout: fixed; /* [2] */
+    width: 200px; /* [3] */
+}
+
+    .tabs__item {
+        display: table-cell; /* [4] */
+    }
+
+        .tabs__link {
+            display: block; /* [5] */
+        }
+
+
+/**
+ * Primary nav. Extends `.tabs`.
+ *
+ * 1. Stop tabs’ corners leaking out beyond our 4px round.
+ */
+.primary-nav {
+    text-align: center;
+    border-radius: 27px;
+    overflow: hidden; /* [1] */
+}
+
+        .primary-nav a {
+            padding: 1em;
+            background-color: var(--bg-primary);
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .primary-nav a:hover {
+            background-color: var(--bg-secondary);
+        }
+html {
+    font: 0.75em/1.5 sans-serif;
+}
+
+#square{
+    position: fixed;
+    z-index: -1;
+    top: 0px; 
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}
+
+#rectangle{
+    position: fixed;
+    z-index: -1;
+    bottom: 0px; 
+    left: 50px;
+    width: 200px;
+    height: 100px;
+    background-color: red;
+}
+
+#circle{
+    position: fixed;
+    z-index: -1;
+    bottom: 0px; 
+    right: 0px;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border-radius: 50px;
+}
+
+ /* Small screens */
+ @media only screen and (max-width: 650px) {
+    .maincomp {
+        margin-left: 1rem;
+        padding: 1rem;
+      }
+ }
+
+  /* Large screens */
+ @media only screen and (min-width: 650px) {
+    .maincomp {
+        margin-left: 6rem;
+        padding: 1rem;
+      }
+  }

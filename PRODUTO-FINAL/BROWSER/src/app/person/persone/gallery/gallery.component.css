@@ -1,0 +1,19 @@
+nb-card{
+    border-radius: 5%;
+}
+nb-card-header{
+    padding-left: 12px;
+    background-color: lightpink;
+    
+}
+nb-card-body{
+    padding-left: 12px;
+    padding-top: 10px;
+    background-color: whitesmoke;
+    
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 100%;
+  }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/simple_path" android:title="Simple Path" android:icon="@drawable/ic_simple_path"/>
+    <item android:id="@+id/waypoints" android:title="Waypoints" android:icon="@drawable/ic_waypoints"/>
+    <item android:id="@+id/path_tracking" android:title="Path Tracking" android:icon="@drawable/ic_path_tracking"/>
+    <item android:id="@+id/favorites" android:title="Favorites" android:icon="@drawable/ic_favorite_24px"/>
+    <item android:id="@+id/special_areas" android:title="Special areas" android:icon="@drawable/ic_close"/>
+    <item android:id="@+id/path_history" android:title="Path History" android:icon="@drawable/ic_history"/>
+    <item android:id="@+id/back" android:title="Back" android:icon="@drawable/ic_back"/>
+
+</menu>

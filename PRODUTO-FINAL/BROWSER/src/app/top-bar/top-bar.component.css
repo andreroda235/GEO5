@@ -1,0 +1,236 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    font-size: 16px;
+    font-family: 'Open Sans';
+    --text-primary: white;
+    --text-secondary: #ececec;
+    --bg-primary: 	#48D1CC;
+    --bg-secondary: #008080;
+    --bg-third: #AFEEEE;
+    --bg-error: #CF2502;
+    --transition-speed: 600ms;
+    z-index: 10002;
+  }
+  
+  body {
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .maincomp {
+    font-size: 16px;
+    font-family: 'Open Sans';
+  }
+  
+  ::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  
+::-webkit-scrollbar-track {
+    background: #2196f3;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background: #183958;
+  }
+  .middle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  ::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #2196f3;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #183958;
+  }
+  
+  .navbar {
+    position: fixed;
+    background-color: var(--bg-primary);
+    transition: width 600ms ease;
+    overflow: scroll;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  .navbar::-webkit-scrollbar {
+    width: 0.30rem;
+    height: 0.0rem;
+  }
+  
+  .navbar::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+  }
+  
+  .navbar::-webkit-scrollbar-thumb {
+    background: var(--bg-primary);
+  }
+  
+  .navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .nav-item {
+    width: 100%;
+  }
+  
+  .nav-item:last-child {
+    margin-top: auto;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+    transition: var(--transition-speed);
+  }
+  
+  .nav-link:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+  }
+  
+  .link-text {
+    display: none;
+    margin-left: 1rem;
+  }
+  
+  .nav-link svg {
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+  }
+  
+  .fa-primary {
+    color: white;
+  }
+  
+  .fa-secondary {
+    color: #ececec;
+  }
+  
+  .fa-primary,
+  .fa-secondary {
+    transition: var(--transition-speed);
+  }
+  
+  .logo {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    font-size: 1.5rem;
+    letter-spacing: 0.3ch;
+    width: 100%;
+  }
+  
+  .logo svg {
+    transform: rotate(0deg);
+    transition: var(--transition-speed);
+  }
+  
+  .logo-text
+  {
+    display: inline;
+    position: absolute;
+    left: -999px;
+    transition: var(--transition-speed);
+  }
+  
+  .navbar:hover .logo svg {
+    transform: rotate(-180deg);
+  }
+  
+  /* Small screens */
+  @media only screen and (max-width: 650px) {
+    .navbar {
+      bottom: 0;
+      width: 100vw;
+      height: 5rem;
+    }
+  
+    .logo {
+      display: none;
+    }
+  
+    .navbar-nav {
+      flex-direction: row;
+    }
+  
+    .nav-link {
+      justify-content: center;
+    }
+  
+    .maincomp {
+      margin: 0;
+    }
+    .backbtn{
+      z-index: 10001;
+    }
+    .backbtn {
+        width: 2rem;
+        position: fixed;
+        top: 1rem;
+        left: 3rem;
+        font-family: sans-serif;
+        background-color: var(--bg-primary);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    }
+    .backbtn svg {
+      transform: rotate(-180deg);
+    }
+  }
+  
+  /* Large screens */
+  @media only screen and (min-width: 650px) {
+    .navbar {
+      top: 0;
+      width: 6rem;
+      height: 100vh;
+    }
+    .backbtn{
+      display: none;
+    }
+    .navbar:hover {
+      width: 16rem;
+    }
+  
+    .navbar:hover .link-text {
+      display: inline;
+    }
+  
+    .navbar:hover .logo svg
+    {
+      margin-left: 11rem;
+    }
+  
+    .navbar:hover .logo-text
+    {
+      left: 0px;
+    }
+  }
+  
+  
+  html, body { height: 100%; }
+  body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  

@@ -1,0 +1,157 @@
+<div>
+<div class="mainBarCompBox">  
+<div class="mainBarComp">
+    <div class="subComp">
+        <carousel [slides]="slides"></carousel> 
+    </div>
+    <div class="card text-center">
+        <div class="card-header">
+          <ul class="nav nav-pills card-header-pills">
+            
+            <a [routerLink]="'/home'" class="nav-link">{{'Home'|translate}}</a> 
+           
+            <li class="nav-item" (click)="ChangeOnMainPageT()">
+              <a class="nav-link" [routerLink]="[ '/map']">{{'Map'|translate}} </a>
+            </li>
+            <li class="nav-item" (click)="ChangeOnMainPageF()">
+              <a class="nav-link" [routerLink]="[ '/map/caminho']">{{'Routs'|translate}}</a>
+            </li>
+            <li class="nav-item" (click)="ChangeOnMainPageF()">
+              <a class="nav-link" [routerLink]="[ '/map/control']">{{'Controllers'|translate}} </a>
+            </li>
+          </ul>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+    <div *ngIf="onMainPage">
+        <div class="card-body">
+            <div class="card-body">
+                <div>Latitude: {{latitudeM}}</div>
+                <div>Longitude: {{longitudeM}}</div>
+                            
+                <div class="row" *ngIf="newDefInc && !newDef1">
+                    <div class="col">
+                        <button  class="btn btn-primary" (click)="removeDirection()" >{{'Hide'|translate}}</button>
+                    </div>
+                    <div class="col">
+                        <button  class="btn btn-primary" (click)="showDirection()" >{{'Show'|translate}}</button>
+                    </div>
+                    <div class="col">
+                        <button id="new" class="btn btn-success" (click)="definirCaminho()" >{{'New'|translate}}</button>
+                    </div>
+                    
+                </div>
+                
+                <div *ngIf="!newDefInc && !newDef1">
+                    <div class="row" *ngIf="!newDefInc">
+                        <div class="alert alert-primary" role="alert">
+                            {{'MapStartP'|translate}}<strong>{{'MapSReady'|translate}}</strong>
+                         </div>
+                        <div class="col">
+                        <button  class="btn btn-success" (click)="definirC1()" >{{'Set'|translate}}</button>
+                        </div>
+                    </div><br>
+
+                    <div class="row"> 
+                        <div class="alert alert-primary" role="alert">
+                            {{'OtherForm'|translate}}
+                        </div>
+                    </div>
+
+                    <form [formGroup]="formDir" (ngSubmit)="onSubmit(formDir.value)">
+                        <div class="form-group" formGroupName="origin">
+                          <label for="exampleInputEmail1">{{'StartPLatLong'|translate}}</label>
+                            <input type="text" class="form-control" formControlName="lat" [value]="origin.lat" placeholder="{{'StartLat'|translate}}">
+                            <input type="text" class="form-control" formControlName="lng" [value]="destination.lng" placeholder="{{'StartLong'|translate}}">
+                        </div>
+                        <div class="form-group" formGroupName="destination">
+                            <label for="exampleInputEmail1">{{'EndPLatLong'|translate}}</label>
+                            <input type="text" class="form-control" formControlName="lat" [value]="destination.lat" placeholder="{{'EndLat'|translate}}">
+                            <input type="text" class="form-control" formControlName="lng" [value]="destination.lng" placeholder="{{'EndLong'|translate}}">
+                        </div>    
+                        <button type="submit" class="btn btn-primary" >{{'Submit'|translate}}</button>
+                        <br><br><br><br><br><br>
+                    </form>
+            
+                </div>
+                <div *ngIf="!newDefInc && newDef1 && !newDef2">
+                    <div class="alert alert-success" role="alert">
+                        <strong>{{'SetStartP'|translate}} {{origin.lat}} && {{origin.lng}}</strong>  {{'MapSReady'|translate}}
+                        </div>
+                        <div class="col">
+                        <button  class="btn btn-success" (click)="definirC2()" >{{'Set'|translate}}</button>
+                        </div>
+                        <div class="alert alert-primary" role="alert">
+                            <strong>{{'SetWayPointU1'|translate}}</strong> {{'SetWayPointU2'|translate}}
+                        </div>
+                        <button  class="btn btn-primary" (click)="definirC2WayP()" >{{'SetWayP'|translate}}</button>
+                        <div *ngIf="wayPushed">
+                            <div class="alert alert-success" role="alert">
+                                <strong>{{'PointAdd'|translate}}</strong>
+                            </div>
+                        </div>
+                </div>
+                <div *ngIf="!newDefInc && newDef1 && newDef2">
+                    <div class="alert alert-success" role="alert">
+                        <strong>{{'SetStartP'|translate}} {{origin.lat}} && {{origin.lng}} {{'SetDest'|translate}} {{destination.lat}}&& {{destination.lng}} {{'CreatP'|translate}}</strong>
+                    </div>
+                    <button  class="btn btn-success" (click)="anyWaypoints()" >{{'Create'|translate}}</button>
+                    <button  class="btn btn-danger" (click)="abortChanges()" >{{'Set'|translate}}</button>
+                </div>    
+        </div>
+    </div>            
+</div>
+</div>  
+    <agm-map
+    #map
+    [mapTypeControl]='true'
+    [latitude]="latitude" 
+    [longitude]="longitude" 
+    [zoom]="zoom" 
+    [disableDoubleClickZoom]="true"
+    (mapDblClick) ="showHMarker($event)"    
+    (mapRightClick)="getOptions($event,infoWindowOption)"
+    >
+        <agm-info-window
+        #infoWindowOption
+        [latitude]="infoOptionLat" 
+        [longitude]="infoOptionLng"  
+        [disableAutoPan]="true" 
+        [isOpen]="show2"
+        >
+        </agm-info-window>
+        
+        <agm-marker 
+        *ngIf="showMarker"
+        [latitude]="latitudeM" 
+        [longitude]="longitudeM"
+        [markerDraggable]="true"
+        (drag)="markerDragEnd($event)"> 
+        </agm-marker>
+
+        <agm-marker *ngFor="let marker of markers" [latitude]="marker.latitude" [longitude]="marker.longitude" [markerDraggable]="false" (markerClick)="clickedMarker(infowindow)" [visible]=show>       
+            <agm-info-window [disableAutoPan]="true" #infowindow>{{marker.info}}</agm-info-window>
+        </agm-marker>
+            
+        <agm-direction #defWay *ngFor="let way of waywayway" [travelMode]="way.travelMode" [origin]="way.origin" [destination]="way.destination" [waypoints]="way.waypoints" [visible]="way.visible">
+        
+        </agm-direction>
+
+        <agm-polyline  [strokeColor]="'red'" *ngIf="newPolly">
+            <agm-polyline-point  *ngFor="let marker of dirWaysP" [latitude]="marker.lat" [longitude]="marker.lng">
+            </agm-polyline-point>
+        </agm-polyline>
+        <agm-polyline  [strokeColor]="'red'" *ngIf="show">
+            <agm-polyline-point  *ngFor="let point of cc" [latitude]="point.latitude" [longitude]="point.longitude">
+            </agm-polyline-point>
+        </agm-polyline>
+        <agm-marker *ngFor="let point of cc" [latitude]="cc[0].latitude" [longitude]="cc[0].longitude" [markerDraggable]="false" (markerClick)="clickedMarker(infowindow)" [visible]=show>       
+            <agm-info-window [disableAutoPan]="true" #infowindow>
+                <strong>Trilho Castrejo</strong><br>
+                <img src="https://s0.wklcdn.com/image_18/563863/17514776/11043738Master.jpg" width="200px" height="200px">
+                </agm-info-window>
+        </agm-marker>
+
+    </agm-map>
+
+</div>

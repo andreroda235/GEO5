@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Geo5</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets\Geo5S-logoRedondo.png">      
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <base href="/">
+  <style>
+    #circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+	width: 150px;
+    height: 150px;	
+}
+
+.loader {
+    width: calc(100% - 0px);
+	height: calc(100% - 0px);
+	border: 8px solid #48D1CC;
+	border-top: 8px solid #008080;
+	border-radius: 50%;
+	animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+100% {transform: rotate(360deg);}
+} 
+    </style>
+
+</head>
+<body class="mat-typography">
+  <app-root>
+    <div id="circle">
+      <div class="loader">
+        <div class="loader">
+            <div class="loader">
+               <div class="loader">
+    
+               </div>
+            </div>
+        </div>
+      </div>
+    </div> 
+  </div></app-root>
+</body>
+</html>

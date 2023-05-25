@@ -1,0 +1,40 @@
+<mat-toolbar color = "primary">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="toggleSideBar($event)">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <span>{{'GeoPlaces-Admin'|translate}}</span>
+
+        <div fxFlex fxLayout = "row" fxLayoutAlign = "flex-end">
+            <ul fxLayout = "row" fxLayoutGap = "20px">
+                
+                <li>
+                    <button mat-icon-button onclick="window.location.href = 'https://geo5solutions.blogspot.com/2020/07/ajuda-para-admin.html';" >
+                        <mat-icon>help_outline</mat-icon>
+                    </button>
+                </li>
+                <li>
+                    <button mat-button [matMenuTriggerFor] = "menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu = "matMenu">
+                        <button mat-menu-item routerLink = "/home">
+                            <mat-icon>home</mat-icon>
+                            {{'Home'|translate}}
+                        </button>
+                        <button mat-menu-item routerLink = "/personAd">
+                            <mat-icon>person_outline</mat-icon>
+                            {{'Profile'|translate}}
+                        </button>
+                        <button mat-menu-item (click)="logOut()">
+                            <mat-icon>exit_to_app</mat-icon>
+                            {{'Exit'|translate}}
+                        </button>
+                    </mat-menu>                   
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    tools:context=".SettingsActivity"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/settings_toolbar"/>
+
+    <android.support.v4.widget.ContentLoadingProgressBar
+        android:id="@+id/delete_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/delete_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="@string/change_language"
+                android:textSize="24sp" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/changeLang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/languages"
+                android:layout_gravity="center"/>
+<!--                android:text="@string/language"-->
+<!--                android:textSize="24sp" />-->
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/en_lang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="EN" />
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/pt_lang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="PT" />
+            </RadioGroup>
+
+            <RelativeLayout
+                android:id="@+id/delete_acc_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true">
+
+                <TextView
+                    android:id="@+id/manage_acc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:text="@string/manage_account"
+                    android:textSize="24sp"/>
+
+                <Button
+                    android:id="@+id/delete_acc_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delete_account"
+                    android:layout_below="@id/manage_acc"/>
+
+                <EditText
+                    android:id="@+id/user_2_delete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Username"
+                    android:visibility="gone"
+                    android:layout_below="@id/delete_acc_button"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

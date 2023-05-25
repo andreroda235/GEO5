@@ -1,0 +1,20 @@
+<div class="card-body">
+    <div class="card-body">
+        <h5 class="card-title">{{'RoutWellcome'|translate}}</h5>
+        <button class="btn btn-outline-success" (click)="getAllMyRoutes()" >{{'RoutFav'|translate}}</button>
+    </div>
+<div *ngIf="loadingFav">
+    <div class="alert alert-success" role="alert"> <strong>{{'RFavLoad'|translate}}</strong> </div>
+</div>
+<div *ngIf="isFavError">
+    <div class="alert alert-danger" role="alert"> <strong>{{'RFavFailLoad'|translate}}</strong> </div>
+</div>
+<div>
+    <app-direction
+    *ngFor="let direction of directions"
+    [direction]="direction"
+    (deleteDir)=deleteDir($event)
+    >
+</app-direction>
+</div>
+</div>

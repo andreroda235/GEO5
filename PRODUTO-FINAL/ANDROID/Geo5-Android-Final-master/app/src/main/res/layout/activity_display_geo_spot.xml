@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DisplayGeoSpotActivity"
+    android:backgroundTint="@color/layout_washed_grey">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/geospot_name"
+        android:text="GeoSpot Name"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:maxLines="1"
+        android:layout_marginBottom="10dp"/>
+
+        <RelativeLayout
+            android:id="@+id/geospot_recipient_layout"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@+id/geospot_name"
+            android:background="@drawable/custom_tex_input"
+            android:backgroundTint="@color/colorPrimaryDark">
+
+            <ImageView
+                android:id="@+id/geospot_image_recipient"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/geospot_loading_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"
+                android:textSize="50sp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/geospot_photo_buttons_layout"
+            android:layout_below="@id/geospot_recipient_layout">
+
+        <Button
+            android:id="@+id/geospot_photo_previous"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_previous"
+            android:layout_marginTop="10dp"
+            android:onClick="navigatePhoto"/>
+        <Button
+            android:id="@+id/geospot_photo_next"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_next"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:onClick="navigatePhoto"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="140dp"
+            android:id="@+id/geospot_description"
+            android:text="GeoSpot Description"
+            android:layout_below="@+id/geospot_photo_buttons_layout"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/custom_tex_input"
+            android:scrollbars = "vertical"
+            />
+
+        <Button
+            android:id="@+id/geospot_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comments"
+            android:layout_below="@+id/geospot_description"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_tex_input"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:onClick="checkButton"
+            />
+
+        <Button
+            android:id="@+id/geospot_quizz_unavailable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QUIZZ!"
+            android:layout_below="@+id/geospot_comments"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_tex_input"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/layout_washed_grey"
+            android:onClick="checkButton"
+            />
+
+        <Button
+            android:id="@+id/geospot_quizz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QUIZZ!"
+            android:layout_below="@+id/geospot_comments"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_tex_input"
+            android:textColor="@color/colorPrimaryDark"
+            android:backgroundTint="@color/washed_blue"
+            android:onClick="checkButton"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

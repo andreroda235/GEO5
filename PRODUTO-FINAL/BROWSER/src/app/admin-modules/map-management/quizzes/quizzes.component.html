@@ -1,0 +1,81 @@
+<form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    <div class="card m-3">
+        <h5 class="card-header">{{'CreateQuizz'|translate}}</h5>
+        <div class="card-body border-bottom">
+            <div class="form-row">
+                <div class="form-group">
+                    
+                    <label>{{'QuizzeTitle'|translate}}</label>
+                    <input type="text" formControlName="quizzTitle" class="form-control" [(ngModel)]="quizzTitle" [ngClass]="{ 'is-invalid': submitted && f.quizzTitle.errors }" />
+                    <div *ngIf="submitted && f.quizzTitle.errors" class="invalid-feedback">
+                        <div *ngIf="f.quizzTitle.errors.required">{{'QuizzeTitle'|translate}}</div>
+                    </div> 
+
+                    <label>{{'QuizzeIntro'|translate}}</label>
+                    <input type="text" formControlName="quizzIntro" class="form-control" [(ngModel)]="quizzIntro" [ngClass]="{ 'is-invalid': submitted && f.quizzIntro.errors }" />
+                    <div *ngIf="submitted && f.quizzIntro.errors" class="invalid-feedback">
+                        <div *ngIf="f.quizzIntro.errors.required">{{'QuizzeWIntro'|translate}}</div>
+                    </div> 
+
+                    <label>{{'QuizzeTags'|translate}}</label>
+                    <input type="text" formControlName="quizzKW" class="form-control" [(ngModel)]="quizzKW" [ngClass]="{ 'is-invalid': submitted && f.quizzKW.errors }" />
+                    <div *ngIf="submitted && f.quizzKW.errors" class="invalid-feedback">
+                        <div *ngIf="f.quizzKW.errors.required">{{'QuizzeWTags'|translate}}</div>
+                    </div> 
+
+                    <label>{{'NumbQuest'|translate}}</label>
+                    <select formControlName="numberOfQuestions" class="form-control" (change)="onChangeQuestions($event)" [ngClass]="{ 'is-invalid': submitted && f.numberOfQuestions.errors }">
+                        <option value=""></option>
+                        <option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">{{i}}</option>
+                    </select>
+                    <div *ngIf="submitted && f.numberOfQuestions.errors" class="invalid-feedback">
+                        <div *ngIf="f.numberOfQuestions.errors.required">{{'NumbQuestR'|translate}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngFor="let question of q.controls; let i = index" class="list-group list-group-flush">
+            <div class="list-group-item">
+                <h5 class="card-title">{{'Question'|translate}} {{i + 1}}</h5>
+                <div [formGroup]="question" class="form-row">
+                    
+                    <label>{{'WQuestion'|translate}}</label>
+                    <input type="text" formControlName="question" class="form-control" [ngClass]="{ 'is-invalid': submitted && question.controls.question.errors }" />
+                    <div *ngIf="submitted && question.controls.question.errors" class="invalid-feedback">
+                        <div *ngIf="question.controls.question.errors.required">{{'EQuestion'|translate}}</div>
+                    </div> 
+
+                    <label>{{'QuestionAR'|translate}}</label>
+                    <input type="text" formControlName="rightAnswer" class="form-control" [ngClass]="{ 'is-invalid': submitted && question.controls.rightAnswer.errors }" />
+                    <div *ngIf="submitted && question.controls.rightAnswer.errors" class="invalid-feedback">
+                        <div *ngIf="question.controls.rightAnswer.errors.required">{{'EQuestionAR'|translate}}</div>
+                    </div>
+
+                    <label>{{'QuestionAW1'|translate}}</label>
+                    <input type="text" formControlName="wrongAnswer1" class="form-control" [ngClass]="{ 'is-invalid': submitted && question.controls.wrongAnswer1.errors }" />
+                    <div *ngIf="submitted && question.controls.wrongAnswer1.errors" class="invalid-feedback">
+                        <div *ngIf="question.controls.wrongAnswer1.errors.required">{{'EQuestionAW1'|translate}}</div>
+                    </div>
+
+                    <label>{{'QuestionAW2'|translate}}</label>
+                    <input type="text" formControlName="wrongAnswer2" class="form-control" [ngClass]="{ 'is-invalid': submitted && question.controls.wrongAnswer2.errors }" />
+                    <div *ngIf="submitted && question.controls.wrongAnswer2.errors" class="invalid-feedback">
+                        <div *ngIf="question.controls.wrongAnswer2.errors.required">{{'EQuestionAW2'|translate}}</div>
+                    </div>
+
+                    <label>{{'QuestionAW3'|translate}}</label>
+                    <input type="text" formControlName="wrongAnswer3" class="form-control" [ngClass]="{ 'is-invalid': submitted && question.controls.wrongAnswer3.errors }" />
+                    <div *ngIf="submitted && question.controls.wrongAnswer3.errors" class="invalid-feedback">
+                        <div *ngIf="question.controls.wrongAnswer3.errors.required">{{'EQuestionAW3'|translate}}</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center border-top-0">
+            <button class="btn btn-primary mr-1">{{'CQuizze'|translate}}</button>
+            <button class="btn btn-secondary mr-1" type="reset" (click)="onReset()">{{'Reset'|translate}}</button>
+            <button class="btn btn-secondary" type="button" (click)="onClear()">{{'Clear'|translate}}</button>
+        </div>
+    </div>
+</form>

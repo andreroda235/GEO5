@@ -1,0 +1,44 @@
+<mat-nav-list>
+    <mat-divider></mat-divider>
+    
+    <div class = "profile-card">
+        <div class = "header">
+            <h2>{{userI.user_username}}</h2>
+            <h4>{{userI.user_email}}</h4>
+        </div>
+        <img src ={{picSrc}} alt = "Admin Photo">
+        <h4>{{userI.user_role}}</h4>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Stats</h2>
+    <a mat-list-item routerLinkActive = "list-item-active" routerLink = "/admin">
+        <mat-icon>insert_chart_outlined</mat-icon>
+        {{'Dashboard'|translate}}
+    </a>
+    <a mat-list-item routerLinkActive = "list-item-active" routerLink = "/admin/userReports">
+        <mat-icon>recent_actors</mat-icon>
+        {{'CommentsEvaluation'|translate}}
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>{{'ManagementTools'|translate}}</h2>
+
+    <a mat-list-item routerLinkActive = "list-item-active" routerLink = "/admin/adminTools">
+        <mat-icon>work_outline</mat-icon>
+        {{'AdminsManagement'|translate}}
+    </a>
+
+    <a mat-list-item routerLinkActive = "list-item-active" routerLink = "/admin/userTools">
+        <mat-icon>supervisor_account</mat-icon>
+        {{'UserManagement'|translate}}
+    </a>
+
+    <a mat-list-item routerLinkActive = "list-item-active" routerLink = "/admin/mapTools">
+        <mat-icon>map</mat-icon>
+        {{'MapManagement'|translate}}
+    </a>
+
+</mat-nav-list>

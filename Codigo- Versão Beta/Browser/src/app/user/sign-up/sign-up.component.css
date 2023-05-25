@@ -1,0 +1,135 @@
+
+
+.middle{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  list-style: none;
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.body{
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  background-color: var(--bg-third);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+/**
+* Tabs object.
+*
+* 1. Tables (kinda) for layout!
+* 2. This is the magic bit; make all children occupy equal width.
+* 3. Required to make the tabs fill their container.
+* 4. Make each tab pack up horizontally.
+* 5. Ensure the hit area covers the whole tab.
+*/
+.tabs {
+  margin:  0;
+  padding: 0;
+  list-style: none;
+  display: table; /* [1] */
+  table-layout: fixed; /* [2] */
+  width: 100%; /* [3] */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+  .tabs__item {
+      display: table-cell; /* [4] */
+  }
+
+      .tabs__link {
+          display: block; /* [5] */
+      }
+
+
+/**
+* Primary nav. Extends `.tabs`.
+*
+* 1. Stop tabs’ corners leaking out beyond our 4px round.
+*/
+.primary-nav {
+  text-align: center;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  overflow: hidden; /* [1] */
+}
+
+      .primary-nav a {
+          padding: 1em;
+          background-color: var(--bg-primary);
+          color: #fff;
+          font-weight: bold;
+          text-decoration: none;
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+      }
+
+      .primary-nav a:hover {
+          background-color: var(--bg-secondary);
+      }
+html {
+  font: 0.75em/1.5 sans-serif;
+}
+
+
+
+.w-input {
+    width: 80%;
+    background-color: #e3f2fd;
+    border-radius: 22px;
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.input{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: var(--bg-second);
+    line-height: 1.2;
+  
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 40px;
+    background: #e3f2fd;
+    border-radius: 22px;
+    padding: 0 35px 0 35px;
+  }
+
+  .form-btn {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 40px;
+    background-color:var(--bg-primary);
+    border-radius: 22px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .btn:hover {
+    background-color: var(--bg-secondary);
+  }
+  .btn2 {background-color: var(--bg-error); }

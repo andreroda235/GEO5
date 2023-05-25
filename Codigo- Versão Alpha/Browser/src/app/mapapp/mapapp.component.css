@@ -1,0 +1,47 @@
+agm-map {
+  position: absolute;
+  height: 100vh;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  }
+
+.mainBarComp {
+    width: 25vw;
+    height: 100vh;
+    position: fixed;
+    background-color: seashell;
+    overflow: auto;
+}
+.subComp{
+    background-color: white;
+    top:0;
+    height: 30vh;
+}
+
+    /* Small screens */
+    @media only screen and (max-width: 650px) {
+      agm-map {
+        top: 0;
+        width: 100%;
+        height: 75vh;
+      }
+      .mainBarComp {
+          bottom: 0;
+          width: 100vw;
+          height: 25vh;
+      }
+
+    }
+    
+    /* Large screens */
+    @media only screen and (min-width: 650px) {
+      agm-map {
+        right: 0;
+        width: 75vw;
+        height: 100vh;
+      }
+      .mainBarComp {
+        top: 0;
+        width: 25vw;
+        height: 100vh;
+      }
+    }

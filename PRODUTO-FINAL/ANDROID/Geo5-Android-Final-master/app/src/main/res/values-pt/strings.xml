@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_sign_in_short">Entrar</string>
+    <string name="open">Abrir</string>
+    <string name="close">Fechar</string>
+    <string name="settings">Definições</string>
+    <string name="change_language">Mudar idioma</string>
+    <string name="delete_account">Apagar conta</string>
+    <string name="manage_account">Gerir conta</string>
+    <string name="delete_success">Apagada com sucesso</string>
+    <string name="error_invalid_username">Nome de utilizador inválido</string>
+    <string name="prompt_password">Palavra-passe (opcional)</string>
+    <string name="action_sign_in">Entrar ou registar</string>
+    <string name="error_invalid_email">Endereço de email inválido</string>
+    <string name="error_invalid_password">Palavra-passe inválido</string>
+    <string name="error_incorrect_password">Palavra-passe incorreta</string>
+    <string name="error_field_required">Campo obrigatório</string>
+    <string name="permission_rationale">Permissões de contatos são necessários para completar email.</string>
+    <string name="failed_delete">Falha ao apagar utilizador</string>
+    <string name="password">Palavra-passe</string>
+    <string name="place">Lugar</string>
+    <string name="country">País</string>
+    <string name="name">Nome</string>
+    <string name="street">Rua</string>
+    <string name="update_success">Atualizado com sucesso!</string>
+    <string name="error_occurred">Ocorreu um erro</string>
+    <string name="user_profile">Perfil</string>
+    <string name="edit_profile">Editar perfil</string>
+    <string name="search">Pesquisar</string>
+    <string name="logout">Sair</string>
+    <string name="path_manager">Caminhos</string>
+    <string name="languages">Idiomas</string>
+    <string name="invalid_field">Campo inválido!</string>
+    <string name="password_mismatch">Palavras-chave não coincidem!</string>
+    <string name="login_success">Login com sucesso!</string>
+    <string name="error_invalid_username_password">Nome de utilizador ou password inválido!</string>
+    <string name="register_success">Registo com sucesso!</string>
+    <string name="invalid_register">Registo sem sucesso, verifique os campos.</string>
+    <string name="logout_success">Logout com sucesso!</string>
+    <string name="password_requirement">Palavra-chave com o mínimo de 7 charateres.</string>
+    <string name="user_photo">Foto de utilizador</string>
+    <string name="map">Mapa</string>
+    <string name="from">De</string>
+    <string name="create_path">Criar Caminho</string>
+    <string name="add_marker">Adicionar Marcador</string>
+    <string name="to">Para</string>
+    <string name="app_motto">Realizando seus sonhos de exploração</string>
+    <string name="birthday">Aniversário</string>
+    <string name="address">Endereço</string>
+    <string name="zip_code">Código Postal</string>
+    <string name="confirm_delete">Tem a certeza quer apagar a conta?</string>
+    <string name="confirm_logout">Tem a certeza que quer sair?</string>
+
+</resources>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PathDetailsActivity"
+    android:backgroundTint="#ececec">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="20dp">
+
+        <LinearLayout
+            android:id="@+id/route_title_layout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/details_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A2"
+                android:textSize="26sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/route_photo_recipient_layout"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/route_title_layout"
+            android:background="@drawable/custom_tex_input"
+            android:backgroundTint="@color/colorPrimaryDark">
+
+            <ImageView
+                android:id="@+id/route_photo_recipient"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY" />
+
+            <TextView
+            android:id="@+id/route_loading_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading..."
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:textSize="50sp"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/route_photo_buttons_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/route_photo_recipient_layout"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/route_photo_previous"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_previous"
+                android:onClick="navigatePhoto" />
+
+            <Button
+                android:id="@+id/route_photo_next"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_next"
+                android:onClick="navigatePhoto" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/add_photo_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_addphoto"
+            android:layout_below="@id/route_photo_recipient_layout"
+            android:visibility="gone"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="140dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/route_description"
+            android:text="Path Description"
+            android:layout_below="@+id/route_photo_buttons_layout"
+            android:background="@drawable/custom_tex_input"
+            android:scrollbars = "vertical"/>
+
+        <Button
+            android:id="@+id/route_comments_btn"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/route_description"
+            android:layout_centerHorizontal="true"
+            android:text="Comments"
+            android:background="@drawable/custom_tex_input"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:onClick="checkButton"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_back"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:onClick="exit"/>
+
+</RelativeLayout>

@@ -1,0 +1,258 @@
+<mat-tab-group>
+   
+    <mat-tab label="{{'AddNReserve'|translate}}"> 
+      <ng-template matTabContent>
+          <div class="card">
+            <div class="card-header">{{'NaturalRFile'|translate}}</div>
+            <div class="card-body">
+              <p>
+            {{'NaturalFileInfo'|translate}} <a href="https://geo5solutions.blogspot.com/2020/07/ajuda-para-admin.html">{{'this'|translate}}</a> {{'RouteTot'|translate}}
+          </p>
+            <form novalidate [formGroup]="formImport">
+              <div class="input-group mb-3">
+            
+            <div class="custom-file">
+              <input type="file" accept=".kml,.gpx" class="custom-file-input" formControlName="importFile" id="importFile" (change)="onFileChange($event.target.files)" >
+                            <label class="custom-file-label" #labelImport for="importFile"><i class="fas fa-search"></i> {{'RouteCFile'|translate}}</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-outline-secondary" type="button" (click)="import()"><i class="fas fa-file-import"></i> {{'Submit'|translate}}
+                            </button>
+          </div>
+            </form>
+            </div>
+          </div>
+      </ng-template>
+    </mat-tab>   
+
+    <mat-tab label="{{'AddGeoStop'|translate}}">  
+        <ng-template matTabContent>
+          <br>
+          <div class="container"> 
+            <div class="row">
+              <div class="col-6">
+              <mat-tab-group>
+
+                <mat-tab label="Set Description"> 
+                  <ng-template matTabContent>
+                    <h2> {{'GeoStopTD'|translate}}</h2>
+                    <mat-divider></mat-divider>
+                    <form class="example-form">
+                      <mat-form-field class="example-full-width">
+                        <mat-label>{{'Title'|translate}}</mat-label>
+                        <input #Title matInput placeholder="Ex. Some title" >
+                      </mat-form-field>
+                      <br>
+                      <mat-form-field class="example-full-width">
+                        <mat-label>{{'Description'|translate}}</mat-label>
+                        <textarea #Description matInput placeholder="Ex. Few words about geoStop"></textarea>
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <mat-label>{{'Tags'|translate}}</mat-label>
+                        <textarea #Tags matInput placeholder="Ex. Arenito,Fossil,Granito..."></textarea>
+                      </mat-form-field>
+                    </form>
+                    <mat-divider></mat-divider>
+                    <button mat-raised-button color="primary" type="submit" [disabled]="!descriptionChanged" (click)="setTitDesc(Title,Description,Tags)">{{'SetText'|translate}}</button>
+                
+                  </ng-template>
+                </mat-tab>
+
+                <mat-tab label="{{'SetLocation'|translate}}">  
+                  <ng-template matTabContent>
+                <h2> {{'FGeoStLoc'|translate}}</h2>
+                <mat-divider></mat-divider>
+                <h3>{{'GeoStPin'|translate}}</h3>
+                <mat-divider></mat-divider>
+                <h3>{{'GeoStF2'|translate}}</h3>
+                <div class="full-name-inputs">          
+                  <mat-form-field appearance="simple">
+                  <mat-label>{{'PlaceName'|translate}}</mat-label>
+                  <input type="text" matInput #inputPlace placeholder="Lisboa" id="place">             
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!markerDragable" (click)="getlatLng(inputPlace)">{{'Search'|translate}}</button>          
+                </div>
+                <mat-divider></mat-divider>
+                <h3>{{'GeoStF3'|translate}}</h3>
+                <mat-form-field appearance="simple">
+                  <mat-label>Latitude</mat-label>
+                  <input type="text" matInput #Latitude placeholder="Ex. 37.079458" id="Latitude">             
+                </mat-form-field>
+                <mat-form-field appearance="simple">
+                  <mat-label>Longitude</mat-label>
+                  <input type="text" matInput #Longitude placeholder="Ex. -8.668619" id="Longitude">             
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!markerDragable" (click)="getlatLngF(Latitude,Longitude)">{{'Search'|translate}}</button>
+                <mat-divider></mat-divider>
+                <h3>{{'GeoStF4'|translate}}</h3>
+                <mat-form-field appearance="simple">
+                  <mat-label>{{'DMSNorth'|translate}}</mat-label>
+                  <input type="text" matInput #N placeholder="N" id="N">             
+                </mat-form-field>
+                <mat-form-field appearance="simple">
+                  <mat-label>{{'DMSWest'|translate}}</mat-label>
+                  <input type="text" matInput #W placeholder="W" id="W">             
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!markerDragable" (click)="getLatLngDms(N,W)">{{'Search'|translate}}</button>
+                <br>
+                <mat-divider></mat-divider>
+                <br>
+                
+                  </ng-template></mat-tab>
+
+                  <mat-tab label="{{'AddImages'|translate}}">  
+                    <ng-template matTabContent>
+                      <form novalidate [formGroup]="formImport">
+                        <div class="input-group mb-3">
+                      <div class="custom-file">
+                        <input type="file" accept=".png,.jpg" multiple="multiple" class="custom-file-input" formControlName="importFile" id="importFile" (change)="onFileChangeS($event.target.files)" >
+                                      <label class="custom-file-label" #labelImport for="importFile"><i class="fas fa-search"></i>{{'GeoCImages'|translate}}</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <button mat-raised-button color="primary" type="submit" [disabled]="!imagesAddedtoSend" (click)="importImages()"> {{'Submit'|translate}}</button>
+                    </div>
+                      </form>
+                      <div class="container">
+                        <div class="row" *ngFor="let item of images">    
+                          <div class="col" *ngIf="imageSend">   
+                            <img [src]="item" *ngIf="imgURL">
+                          </div>
+                        </div>  
+                      </div>
+                    </ng-template>
+                  </mat-tab>
+
+            </mat-tab-group>
+              </div>
+
+                <div class="col-6">  
+                <agm-map #map [latitude]="latitude" [longitude]="longitude" >
+                  <agm-marker id="marker" [latitude]="latitudeM" [longitude]="longitudeM" [markerDraggable]="markerDragable" (drag)="markerDragEnd($event)"></agm-marker>
+                </agm-map>   
+                </div>
+            </div>
+          </div>
+          <br><br><br>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <mat-checkbox class="example-margin" (checked)="!descriptionChanged" (click)="descriptionChange()">{{'DescCheck'|translate}}</mat-checkbox>
+                <br>
+                <mat-checkbox class="example-margin"  (checked)="!markerDragable" (click)="markerDragableChange()">{{'MarkerCheck'|translate}}</mat-checkbox>
+                <br>
+                <mat-checkbox class="example-margin"  (checked)="!imagesAddedtoSend" (click)="imagesAddedtoSendChange()">{{'ImagesCheck'|translate}}</mat-checkbox>
+              </div>
+              <div class="col">
+                <h2>{{'GeoStFields'|translate}}</h2>
+                <br>
+                <button mat-raised-button color="primary" [disabled]="(descriptionChanged || markerDragable || imagesAddedtoSend)" type="submit" (click)="SubmitGeoStop()">{{'Submit'|translate}}</button>
+              </div>
+              <div class="col"></div>
+            </div>
+          </div>
+        </ng-template>         
+    </mat-tab>
+
+    <mat-tab label="{{'NInfoContent'|translate}}"> 
+      <ng-template matTabContent>
+        <br>
+        <div class="container"> 
+          <div class="row">
+            <div class="col-6">
+              <h2> {{'GeoMat'|translate}}</h2>
+              <mat-divider></mat-divider>
+              <form class="example-form">
+                <mat-form-field class="example-full-width">
+                  <mat-label>{{'Title'|translate}}</mat-label>
+                  <input #Title matInput placeholder="Ex. Some title" >
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                  <mat-label>{{'Description'|translate}}</mat-label>
+                  <textarea #Description matInput rows="3" placeholder="Ex. Few words about this place"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-label>{{'LinkGeoMap'|translate}}</mat-label>
+                  <textarea #GeoMapLink matInput rows="3" placeholder="Url to resource map must be https://.."></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-label>{{'LinkGeoNotice'|translate}}</mat-label>
+                  <textarea #ExplicativeNotice matInput rows="3" placeholder="Url to resource text must be https://.."></textarea>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="simple">
+                  <mat-label>Latitude</mat-label>
+                  <input type="text" matInput #Latitude placeholder="Ex. 37.079458" id="Latitude">             
+                </mat-form-field>
+                <mat-form-field appearance="simple">
+                  <mat-label>Longitude</mat-label>
+                  <input type="text" matInput #Longitude placeholder="Ex. -8.668619" id="Longitude">             
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" (click)="getlatLngF(Latitude,Longitude)">{{'Search'|translate}}</button>
+                <br>
+                <h3> {{'OR'|translate}} </h3>
+                <br>
+                <mat-form-field appearance="simple">
+                  <mat-label>{{'DMSNorth'|translate}}</mat-label>
+                  <input type="text" matInput #N placeholder="N" id="N">             
+                </mat-form-field>
+                <mat-form-field appearance="simple">
+                  <mat-label>{{'DMSWest'|translate}}</mat-label>
+                  <input type="text" matInput #W placeholder="W" id="W">             
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit"  (click)="getLatLngDms(N,W)">{{'Search'|translate}}</button>
+                <br>
+                <h3> {{'OR'|translate}}</h3>
+                <br>
+                <div class="full-name-inputs">          
+                  <mat-form-field appearance="simple">
+                  <mat-label>{{'PlaceName'|translate}}</mat-label>
+                  <input type="text" matInput #inputPlace placeholder="Lisboa" id="place">             
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" (click)="getlatLng(inputPlace)">{{'Search'|translate}}</button>          
+                </div>
+                <br>
+                <mat-divider></mat-divider>
+                <br>
+                <form novalidate [formGroup]="formImport">
+                  <div class="input-group mb-3">
+                <div class="custom-file">
+                  <input type="file" accept=".png,.jpg" multiple="multiple" class="custom-file-input" formControlName="importFile" id="importFile" (change)="onFileChangeS($event.target.files)" >
+                                <label class="custom-file-label" #labelImport for="importFile"><i class="fas fa-search"></i> {{'GeoCImages'|translate}}</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <button mat-raised-button color="primary" type="submit" [disabled]="!imagesAddedtoSend" (click)="importImages()"> {{'Submit'|translate}}</button>
+              </div>
+                </form>
+                <div class="container">
+                  <div class="row" *ngFor="let item of images">    
+                    <div class="col" *ngIf="imageSend">   
+                      <img [src]="item" *ngIf="imgURL">
+                    </div>
+                  </div>  
+                </div>
+                <mat-divider></mat-divider>
+                <br><br>
+                <button mat-raised-button color="primary" (click)="newInfoNotice( Title, Description, GeoMapLink, ExplicativeNotice)" type="submit">{{'Submit'|translate}}</button>
+              </form>
+            </div>
+            <div class="col-6">
+              <agm-map #map [latitude]="latitude" [longitude]="longitude" >
+                <agm-marker id="marker" [latitude]="latitudeM" [longitude]="longitudeM" [markerDraggable]="markerDragable" (drag)="markerDragEnd($event)"></agm-marker>
+              </agm-map> 
+            </div>
+          </div>
+        </div>
+      </ng-template>        
+  </mat-tab>
+  
+  <mat-tab label="{{'AddQuizz'|translate}}">  
+      <ng-template matTabContent>
+        <app-quizzes></app-quizzes>
+      </ng-template>         
+  </mat-tab>
+  
+</mat-tab-group>

@@ -1,0 +1,124 @@
+<mat-tab-group>
+  <mat-tab label="Add New Admin"> 
+      <ng-template matTabContent>
+        <div *ngIf="!isRequestError && !isRequestOK" >
+          <form (ngSubmit)="onSubmit()">
+              <h3>{{'AdminInfo'|translate}}</h3>
+        
+              <nb-card>
+                <nb-card-header></nb-card-header>
+                <nb-card-body>
+                  <h4>{{'Role'|translate}}</h4>
+                  <mat-form-field>
+                    <mat-label>{{'SelectRole'|translate}}</mat-label>
+                    <mat-select [(value)] = "selectedValue">
+                      <mat-option>{{'None'|translate}}</mat-option>
+                      <mat-option value = "BO">{{'SuperAdmin'|translate}}</mat-option>
+                      <mat-option value = "BOM">{{'ComunityMod'|translate}}</mat-option>
+                      <mat-option value = "BOP">{{'RoutesAdmin'|translate}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <h4>{{'AdminName'|translate}}</h4>
+                  <div class="full-name-inputs">
+                    
+                    <mat-form-field appearance="simple">
+                      <mat-label>{{'EnterAName'|translate}}</mat-label>
+                      <input matInput [formControl]="name" required>
+                      <mat-error *ngIf="name.invalid">{{'AdminNameError'|translate}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="simple">
+                      <mat-label>{{'EnterAusername'|translate}}</mat-label>
+                      <input matInput [formControl]="username" required>
+                      <mat-error *ngIf="username.invalid">{{'AdminUsernameError'|translate}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="simple">
+                      <mat-label>{{'EnterAPassword'|translate}}</mat-label>
+                      <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+                      <i matSuffix class="material-icons " (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</i>
+                      <mat-error *ngIf="password.invalid">{{'AdminPassError'|translate}}</mat-error>
+                  </mat-form-field>
+                  </div>
+
+                  <div class="other-inputs">                  
+
+                    <h4>{{'Birthday'|translate}}</h4>      
+                    
+                    <mat-form-field appearance = "simple" color="accent">
+                      <mat-label>{{'AdminBirthday'|translate}}</mat-label>
+                      <input matInput [matDatepicker]="picker1">
+                      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                      <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="email-container">
+                    <h4>{{'AdminEmail'|translate}}</h4>
+                    <mat-form-field appearance="simple">
+                      <mat-label>{{'EnterAdminEmail'|translate}}</mat-label>
+                      <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                      <mat-error *ngIf="email.invalid">{{'AdminEmailError'|translate}}</mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <h4>{{'AddressInf'|translate}}</h4>
+                  <div class="adress-inputs">
+                    <mat-form-field appearance="simple">
+                      <mat-label>{{'EnterAddrS'|translate}}</mat-label>
+                      <input matInput [formControl]="street" required>
+                      <mat-error *ngIf="street.invalid">{{'AdminStError'|translate}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="simple">
+                      <mat-label>{{'EnterAdminZip'|translate}}</mat-label>
+                      <input matInput [formControl]="zipcode" required>
+                      <mat-error *ngIf="zipcode.invalid">{{'AdminZipError'|translate}}</mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="adress-inputs">
+                    <mat-form-field appearance="simple">
+                      <mat-label>{{'EnterAdminCity'|translate}}</mat-label>
+                      <input matInput [formControl]="place" required>
+                      <mat-error *ngIf="place.invalid">{{'AdminCityError'|translate}}</mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="adress-inputs">
+                    <mat-form-field appearance="simple">
+                      <mat-label>{{'EnterAdminCountry'|translate}}</mat-label>
+                      <input matInput [formControl]="country" required>
+                      <mat-error *ngIf="country.invalid">{{'CountryError'|translate}}</mat-error>
+                    </mat-form-field>
+                  </div>
+
+                </nb-card-body>
+              </nb-card>
+        
+              <p>
+                <button mat-raised-button color="primary" type="submit" [disabled]="  !(selectedValue!=null && country.valid && place.valid && place.valid && zipcode.valid && street.valid && username.valid && name.valid && email.valid)">{{'Submit'|translate}}</button>
+                <button type="button" class="btn btn-sm btn-outline-danger ml-2" (click)="onCancel()">{{'Cancel'|translate}}</button>
+              </p>            
+              <p></p>
+            </form>
+          </div>
+    
+          <div *ngIf="isRequestError">
+              <img src="../../../assets/errors.png" alt="Errors">
+          </div>
+          <div *ngIf="isRequestOK">
+            <img src="../../../assets/success.jpg" alt="OK">
+          </div>        
+        </ng-template>        
+  </mat-tab>
+
+  <mat-tab label="{{'PermManagement'|translate}}">  
+      <ng-template matTabContent>
+        <h3>{{'Admins'|translate}}</h3>
+        <p></p>
+        <app-permission-man></app-permission-man>
+      </ng-template>  
+  </mat-tab>
+</mat-tab-group>

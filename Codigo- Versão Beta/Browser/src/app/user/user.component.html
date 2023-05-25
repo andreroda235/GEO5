@@ -1,0 +1,25 @@
+<div class="middle" *ngIf="!isRegError">
+  <div class="i-card">
+     
+  
+    <div class="card-header">
+      <h1>Confirmar Dados</h1>
+    </div>
+    <div class="card-body">
+      
+      <p class="card-text"> O codigo de confirmaçao foi enviado para o seu email</p>
+      
+      <form #registForm="ngForm" class="form-4" (ngSubmit)="OnSubmit(Secret.value)" > 
+        <input class="input" type="text" #Secret ngModel name="secret" placeholder="Codigo Secreto">
+     
+      
+      <br>
+      <button class="btn" type="submit">Confirmar</button>
+    
+  </form>
+</div>
+</div>
+</div>
+<div class="middle" *ngIf="isRegError">
+  <load-comp></load-comp>
+</div> 

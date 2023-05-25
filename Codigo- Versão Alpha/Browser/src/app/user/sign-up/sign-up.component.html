@@ -1,0 +1,44 @@
+<div class="middle">
+  <div class="maincomp">
+      <ul class="tabs  primary-nav">
+          <li class="tabs__item">
+              <a class="tabs__link" [routerLink]="'/signin'"routerLinkActive='active'>{{'SignIn' | translate}}</a>
+          </li>
+          <li class="tabs__item">
+              <a class="tabs__link" [routerLink]="'/signup'" routerLinkActive='active'>{{'SignUp' | translate}}</a> 
+          </li>
+      </ul>
+      <div class="body">
+          <div>
+<form #registForm="ngForm" class="form-4" (ngSubmit)="OnSubmit(UserName.value,Name.value,Email.value,Password.value,Confirmation.value)"> 
+        <br>
+        <div class="w-input"> 
+          <input class="input" type="text" #UserName ngModel name="username" placeholder="{{'UserName'|translate}}" required>
+        </div>
+        <p></p>
+        <div class="w-input"> 
+          <input class="input" type="text"  #Name ngModel name="name" placeholder="{{'Name'|translate}}" required>
+        </div>
+        <p></p>
+        <div class="w-input"> 
+          <input class="input" type="email" #Email ngModel  name="email" placeholder="{{'Email'|translate}}" required>
+        </div>
+        <p></p>
+        <div class="w-input"> 
+          <input class="input" type="password" #Password ngModel name="password" placeholder="{{'Password'|translate}}"required>
+        </div>
+        <p></p>
+        <div class="w-input"> 
+          <input class="input" type="password" #Confirmation ngModel name="confirmation" placeholder="{{'ConfirmP'|translate}}"required>                   
+        </div>
+        <p></p>
+    <div class="form-btn">
+    <button class="btn" [disabled]="!registForm.valid" type="submit">{{'Submit' | translate}}</button>
+    </div>
+    <br>      
+</form>
+</div>
+</div>
+</div>
+            
+</div>

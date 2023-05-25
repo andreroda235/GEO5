@@ -1,0 +1,62 @@
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  h1{
+    color: #088ec4d3;      
+    font-family: 'Lobster';
+    
+    font-size:100px;
+    font-weight: 900;
+    top:70%;
+    left:15%;
+    position:absolute;
+  }
+  
+  /* Add some content at the bottom of the video/page */
+  .content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 25px;
+  }
+  
+  /* Style the button used to site redirection */
+  #siteBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #09B05F;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #siteBtn:hover {
+    background: #71FBB8;
+    color: black;
+  }
+
+  /* Style the button used to app download redirection */
+  #androidBtn {
+    width: 250px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #F98320;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #androidBtn:hover {
+    background: #FFC28F;
+    color: black;
+  }
+  

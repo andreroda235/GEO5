@@ -1,0 +1,120 @@
+<mat-tab-group>
+  <mat-tab label="Add New Admin"> 
+      <ng-template matTabContent>
+        <h3>Admin Info</h3>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <nb-card>
+              <nb-card-header></nb-card-header>
+              <nb-card-body>
+                <h4>Admin Name:</h4>
+                <div class="full-name-inputs">
+                  
+                  <mat-form-field appearance="simple">
+                    <mat-label>Enter your name</mat-label>
+                    <input matInput [formControl]="name" required>
+                    <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="simple">
+                    <mat-label>Enter your username</mat-label>
+                    <input matInput [formControl]="username" required>
+                    <mat-error *ngIf="username.invalid">{{getUNErrorMessage()}}</mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div class="other-inputs">                  
+
+                  <h4>Birthday</h4>      
+                  
+                  <mat-form-field appearance = "simple" color="accent">
+                    <mat-label>Set your birthday</mat-label>
+                    <input matInput [matDatepicker]="picker1">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+                </div>
+
+                <div class="email-container">
+                  <h4>Email:</h4>
+                  <mat-form-field appearance="simple">
+                    <mat-label>Enter your email</mat-label>
+                    <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                    <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+                  </mat-form-field>
+                </div>
+
+                <h4>Address Info</h4>
+                <div class="adress-inputs">
+                  <mat-form-field appearance="simple">
+                    <mat-label>Enter your address street</mat-label>
+                    <input matInput [formControl]="street" required>
+                    <mat-error *ngIf="street.invalid">{{getStreetErrorMessage()}}</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="simple">
+                    <mat-label>Enter your address Zip-Code</mat-label>
+                    <input matInput [formControl]="zipcode" required>
+                    <mat-error *ngIf="zipcode.invalid">{{getZipCErrorMessage()}}</mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div class="adress-inputs">
+                  <mat-form-field appearance="simple">
+                    <mat-label>Enter your address place</mat-label>
+                    <input matInput [formControl]="place" required>
+                    <mat-error *ngIf="place.invalid">{{getPlaceErrorMessage()}}</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="simple">
+                    <mat-label>Enter your address city</mat-label>
+                    <input matInput [formControl]="city" required>
+                    <mat-error *ngIf="city.invalid">{{getCityErrorMessage()}}</mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div class="adress-inputs">
+                  <mat-form-field appearance="simple">
+                    <mat-label>Enter your address country</mat-label>
+                    <input matInput [formControl]="country" required>
+                    <mat-error *ngIf="country.invalid">{{getCountryErrorMessage()}}</mat-error>
+                  </mat-form-field>
+                </div>
+
+              </nb-card-body>
+            </nb-card>
+          </div>
+        
+          <div class="col-lg-6">        
+            <nb-card>
+              <nb-card-header>Role</nb-card-header>
+              <nb-card-body>
+                <div>
+                  
+                  <mat-form-field>
+                    <mat-label>Select a role</mat-label>
+                    <mat-select [(value)] = "selectedValue">
+                      <mat-option>None</mat-option>
+                      <mat-option value = "BO">Super Admin</mat-option>
+                      <mat-option value = "BOM">Comunity Moderator</mat-option>
+                      <mat-option value = "BOP">Routes Admin</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <!-- <p>You selected: {{selectedValue}}</p> -->
+                </div>
+              </nb-card-body>
+            </nb-card>
+          </div>
+        </div>        
+      </ng-template>        
+  </mat-tab>
+  <mat-tab label="Permissions Management">  
+      <ng-template matTabContent>
+        Apresentar as opções de gestão de admins.
+      
+                        
+        
+        </ng-template>  
+  </mat-tab>
+</mat-tab-group>

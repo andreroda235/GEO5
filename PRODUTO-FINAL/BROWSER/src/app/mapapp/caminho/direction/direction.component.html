@@ -1,0 +1,57 @@
+<ngb-accordion [activeIds]="activeIds">
+    <ngb-panel id="id12">
+        <ng-template ngbPanelHeader>
+            <p>{{direction.title}}</p>
+                <button ngbPanelToggle class="btn btn-sm btn-outline-primary ml-2" (click)="showHide()">{{'S|H'|translate}}</button>
+                <button type="button" class="btn btn-sm btn-outline-danger ml-2" (click)="delete(direction)">{{'Delete'|translate}}</button>
+        </ng-template>
+
+        <ng-template ngbPanelContent>
+            
+            <div [ngClass]="setClasses()" *ngIf="!isRequestError">
+                    <p> {{direction.description}} </p>
+                    <div class="container">
+                        <div class="row">    
+                            <ngb-carousel >
+                                <ng-template *ngFor="let item of images" ngbSlide>
+                                  <div class="picsum-img-wrapper">
+                                    <img  (click)="bigImage()" [src]="item" alt="Random first slide">
+                                  </div>
+                                </ng-template>    
+                            </ngb-carousel>  
+                      </div>
+                      <div class="row">    
+                        <ngb-carousel >
+                            <ng-template *ngFor="let items of imagesS " ngbSlide>
+                              <div class="picsum-img-wrapper">
+                                <img  (click)="bidImageS()" [src]="items" alt="Random first slide">
+                              </div>
+                            </ng-template>    
+                        </ngb-carousel>  
+                  </div>
+                </div>
+                    <!--
+                    <p> It starts in Coordinates: {{direction.origin.lat}} & {{direction.origin.lng}}</p>
+                    <p>And end in Coordinates: {{direction.destination.lat}} & {{direction.destination.lng}}</p>
+                    -->
+                    <button type="button" class="btn btn-primary"(click)="addtoFavorites(direction)" >{{'AddFav'|translate}}</button>
+                         
+            </div>  
+            <div *ngIf="isRequestError">
+                <div class="alert alert-danger" role="alert">
+                    <strong>{{'AddFavFail'|translate}}</strong>
+                </div>
+            </div>
+            <div *ngIf="isRequestSuccess">
+              <div class="alert alert-success" role="alert">
+                <strong>{{'AddedToYourRoutes'|translate}}</strong>
+            </div>
+            </div>
+            <div *ngIf="isImageSendOK">
+              <div class="alert alert-primary" role="alert">
+                <strong>{{'ImageSendWithOK'|translate}}</strong>
+            </div>
+            </div>
+        </ng-template>
+    </ngb-panel>
+</ngb-accordion>

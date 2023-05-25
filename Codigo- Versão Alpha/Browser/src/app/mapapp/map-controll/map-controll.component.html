@@ -1,0 +1,34 @@
+<div>    
+  <div class="card-body">
+      <div class="card-body" *ngIf="!flagone&&!flagtwo&&!flagtree">
+          <h1 class="card-title">{{'CreateRout'|translate}}</h1>
+          <p class="card-text" style="color:red" >{{'MapRedBP'|translate}}</p>
+          <button class="btn btn-outline-danger" (click)="startOne()">{{'MapRedB'|translate}}</button>
+    </div>
+    <div class="card-body" *ngIf="flagone&&!flagtwo&&!flagtree">
+      <h1 class="card-title">{{'MapStartP'|translate}}</h1>
+      
+      <button class="btn btn-outline-success"(click)="setOrigin()">{{'MapStartPB'|translate}}</button>
+    </div>
+    <div class="card-body" *ngIf="flagone&&flagtwo&&!flagtree">
+      <h1 class="card-title">{{'SelectWP'|translate}}</h1>
+      <p class="card-text" style="color:green" >{{'PressGB'|translate}}</p>
+      <button class="btn btn-outline-success" (click)="setWay()" >{{'WPGB'|translate}}</button>
+      <p class="card-text" style="color:red" >{{'PressRB'|translate}}</p>
+      <button class="btn btn-outline-danger"(click)="setDest()" >{{'WPRB'|translate}}</button>
+
+    </div>
+</div>
+
+<button  class="btn btn-primary" (click)="getInfosOfPoint()">{{'SetURoute'|translate}}</button>
+<div class="card-body" *ngIf="oksT">
+
+<!--<img [src]="imageToShow"-->
+   <!--alt="Place image title"-->
+  <!-- *ngIf="!isImageLoading; else noImageFound">-->
+    <ng-template #noImageFound>
+   <img src="" alt="Fallbackimage">
+    </ng-template>
+    <canvas id="mycanvas" width="1px" height="1px" ></canvas>  
+</div>
+</div>

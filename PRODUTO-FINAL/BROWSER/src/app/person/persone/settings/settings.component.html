@@ -1,0 +1,138 @@
+<nb-card *ngIf="!isRequestError">
+  <nb-card-header>
+    <h2><b>{{'UserSet'|translate}}</b></h2>
+    <mat-divider></mat-divider>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class= "col">
+          <div class="other-inputs">
+            <div class="custom-file">
+              <input type="file" accept=".jpg,.png" class="custom-file-input" id="importPhoto" (change)="onFileChange($event.target.files)" [formControl]="photoControl">
+              <label class="custom-file-label" #labelImport for="importPhoto"><i class="fas fa-photo"></i> {{'ChooseP'|translate}}</label>
+            </div>
+        </div>
+      </div>
+      <div class= "col">
+        <button mat-raised-button color="primary" type="submit" (click)="updatePhoto()" [disabled]="!photoControl.valid" >{{'Submit'|translate}}</button>
+      </div>
+    </div>
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+
+      <form (ngSubmit)="onSubmit()">
+          <div class="row">
+              <div class="col-lg-6">
+
+              <h3>{{'UpdateU'|translate}}</h3>
+              
+              <br>
+              <div class="full-name-inputs">        
+                  <mat-form-field appearance="simple">
+                  <mat-label>{{'EnterNameU'|translate}}</mat-label>
+                  <input type="text" matInput #input maxlength="30" placeholder="{{'EnterNameU'|translate}}" id="userName" [(ngModel)]="userInput.user_name" name="name" [formControl]="nameControl">
+                  <mat-hint align="end">{{input.value?.length || 0}}/30</mat-hint>
+                  <mat-error *ngIf="nameControl.invalid">{{'NameUError'|translate}}</mat-error> 
+                  <br>
+                  </mat-form-field>        
+              </div>
+              <br>
+              <div class="other-inputs">
+                  <mat-form-field appearance="simple">
+                  <mat-label>{{'EnterPassU'|translate}}</mat-label>
+                  <input type="text" matInput placeholder="{{'EnterNewPass'|translate}}" id="userPassword" [(ngModel)]="userInput.user_password" name="password" [formControl]="passControl">
+                  <mat-error *ngIf="passControl.invalid">{{'PassUError'|translate}}</mat-error>
+                  <br>
+                  </mat-form-field>
+              </div>
+              <br>
+              <div class="email-container">
+                <h4>{{'Email'|translate}}</h4>
+                <mat-form-field appearance="simple">
+                <mat-label>{{'EnterNEmail'|translate}}</mat-label>
+                <input type ="text" matInput placeholder="{{'EnterNEmail'|translate}}" id="userEmail" [(ngModel)]="userInput.user_email" name="email" [formControl]="emailControl">
+                <mat-error *ngIf="emailControl.invalid">{{'EmailUError'|translate}}</mat-error>
+                <br>
+                </mat-form-field>
+                <br>
+            
+            </div>
+              <br>
+              <div class="other-inputs">             
+                  <h4>{{'Birthday'|translate}}</h4> 
+                  <mat-form-field appearance = "simple" color="blue">
+                  <mat-label>{{'EnterNBirthday'|translate}}</mat-label>
+                  <input matInput [matDatepicker]="picker1" id="userBirthday" [(ngModel)]="userInput.user_birthday" [formControl]="birthdayControl">
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+              </div>   
+            </div>           
+              <br>
+              <div class="col-lg-6">
+              <h4>{{'AddressInf'|translate}}</h4>
+              <br>
+              <div class="adress-inputs">
+                  <mat-form-field appearance="simple">
+                  <mat-label>{{'EnterNStreet'|translate}}</mat-label>
+                  <input type="text" matInput placeholder="{{'EnterNewS'|translate}}" id="userStreet" [(ngModel)]="userInput.user_street" name="street" [formControl]="streetControl">
+                  <mat-error *ngIf="streetControl.invalid">{{'StreetUError'|translate}}</mat-error>
+                  <br>
+                  </mat-form-field>
+              </div>
+              <br>
+              <div class="adress-inputs">
+                  <br>
+                  <mat-form-field appearance="simple">
+                  <mat-label>{{'EnterNAZipC'|translate}}</mat-label>
+                  <input type="text" matInput maxlength="8" placeholder="{{'EnterNZipC'|translate}}" id="userZipcode" [(ngModel)]="userInput.user_zip_code" name="zipcode" [formControl]="zipcodeControl">
+                  <mat-error *ngIf="zipcodeControl.invalid">{{'ZipCodUError'|translate}}</mat-error>
+                  <br>
+                  </mat-form-field>
+              </div>
+              <br>
+              <div class="adress-inputs">  
+                  <br>                
+                  <mat-form-field appearance="simple">
+                  <mat-label>{{'EnterNACity'|translate}}</mat-label>
+                  <input type="text" matInput placeholder="{{'EnterNCity'|translate}}" id="userCity" [(ngModel)]="userInput.user_place" name="city" [formControl]="placeControl">
+                  <mat-error *ngIf="placeControl.invalid">{{'CityUError'|translate}}</mat-error>
+                  <br>
+                  </mat-form-field>
+              </div>
+              <br>
+              <div class="adress-inputs">
+                  <br>
+                  <mat-form-field appearance="simple">
+                  <mat-label>{{'EnterNACountry'|translate}}</mat-label>
+                  <input type="text" matInput placeholder="{{'EnterNCountry'|translate}}" id="userCountry" [(ngModel)]="userInput.user_country" name="country" [formControl]="countryControl">
+                  <mat-error *ngIf="countryControl.invalid">{{'CountryUError'|translate}}</mat-error>
+                  <br>
+                  </mat-form-field>
+              </div>
+              <br>
+              </div>
+          </div>
+          <p>
+              <button mat-raised-button color="primary" type="submit" [disabled]="!(nameControl.valid || birthdayControl.valid || passControl.valid || emailControl.valid || streetControl.valid || zipcodeControl.valid || placeControl.valid || countryControl.valid)">{{'Submit'|translate}}</button>
+              <button type="button" class="btn btn-sm btn-outline-danger ml-2" (click)="onCancel()">{{'Cancel'|translate}}</button>
+          </p>            
+          <p></p>
+      </form>
+      <mat-divider></mat-divider>
+      <h3>{{'DeleteAcc'|translate}}</h3>
+      <h4>{{'DeleteAcc1'|translate}}</h4>
+      <button type="button" class="btn btn-sm btn-outline-danger ml-2" (click)="onDelete()">{{'Delete'|translate}}</button>
+      <p></p>
+  </nb-card-body>
+</nb-card>
+<nb-card *ngIf="isRequestError">
+  <nb-card-header>
+    <h2><b>{{'UserSet'|translate}}</b></h2>
+    <mat-divider></mat-divider>
+  </nb-card-header>
+  <nb-card-body>
+    {{'ErrorAccUp'|translate}}
+  </nb-card-body>
+</nb-card>

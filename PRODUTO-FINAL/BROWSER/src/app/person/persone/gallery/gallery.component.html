@@ -1,0 +1,16 @@
+<nb-card>
+    <nb-card-header>
+      <h2><b>{{'Gallary'|translate}}</b></h2>
+      <mat-divider></mat-divider>
+    </nb-card-header>
+    <nb-card-body>
+        <mat-grid-list cols="2" rowHeight="2:1">
+            <mat-grid-tile
+                *ngFor="let tile of tiles">
+
+              <img class="modal-content" [src]="tile.color" alt="any">
+
+            </mat-grid-tile>
+          </mat-grid-list>
+    </nb-card-body>
+</nb-card>

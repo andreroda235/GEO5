@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_account_circle_24px"
+        android:title="@string/user_profile" />
+<!--    <item-->
+<!--        android:id="@+id/search"-->
+<!--        android:icon="@drawable/ic_search_24px"-->
+<!--        android:title="@string/search" />-->
+<!--    <item-->
+<!--        android:id="@+id/settings"-->
+<!--        android:icon="@drawable/ic_settings_24px"-->
+<!--        android:title="@string/settings" />-->
+    <item
+        android:id="@+id/path_manager"
+        android:icon="@drawable/ic_room_24px"
+        android:title="@string/path_manager" />
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_exit_to_app_24px"
+        android:title="@string/logout" />
+
+</menu>

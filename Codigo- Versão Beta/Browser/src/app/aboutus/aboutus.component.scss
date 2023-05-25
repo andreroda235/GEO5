@@ -1,0 +1,37 @@
+.aboutus-card {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 50vw;
+  background-color: lightseagreen;
+
+  mat-card-image{
+  
+    width:20%;
+    height:20%;
+  }
+}
+
+.aboutus-header-image {
+  background-image: url('../../assets/Geo5S-logo.jpg');
+  background-size: 80px;
+  background-position: center;
+}
+
+.col-lg-7{
+  left:20%;
+}
+
+mat-card-content{
+  body{
+    background-color: lightseagreen;
+  }
+  padding-left: 10px;
+  .row{
+    transform: translate(8vw,0);
+  }
+  .col-lg-7{
+    transform: translate(8vw,-22.5vh);
+  }
+}

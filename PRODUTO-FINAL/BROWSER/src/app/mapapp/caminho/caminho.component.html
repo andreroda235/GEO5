@@ -1,0 +1,56 @@
+<div class="card-body">
+    
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-outline-success" (click)="getAllMyRoutes()" >{{'RoutFav'|translate}}</button>
+            </div>
+            <div class="col">
+            <button class="btn btn-outline-danger" (click)="delAll()" >{{'Csearch'|translate}}</button>
+            </div>
+        </div>    
+   <br>
+    <div class="row">
+     <!--   <h5 class="card-title">{{'RoutWellcome'|translate}}</h5>-->        
+     
+
+        <div class="col-12" >
+            <form class="form-inline mr-auto" [formGroup]="myGroup" (submit)="searchWithKeyword(data)">
+            <input  #data class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        </form>
+        </div>
+         
+    </div><br>
+<div *ngIf="loadingFav">
+    <div class="alert alert-success" role="alert"> <strong>{{'RFavLoad'|translate}}</strong> </div>
+</div>
+<div *ngIf="isFavError">
+    <div class="alert alert-danger" role="alert"> <strong>{{'RFavFailLoad'|translate}}</strong> </div>
+</div>
+<div *ngIf="!searchWord || !notEmpty">
+    <app-direction
+    *ngFor="let direction of directions
+        | paginate : {id: 'listing_pagination',
+    itemsPerPage: 5,
+    currentPage: page,
+    totalItems: totalRecords
+    }"
+    [direction]="direction"
+    (deleteDir)=deleteDir($event)
+    >
+    </app-direction>
+    <div >
+        <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"> </pagination-controls>
+    </div>
+
+<div class="row" *ngIf="searchWord">
+    <div class="col"></div>
+    <div class="alert alert-info" role="alert"> <strong>{{'RFavFailLoad'|translate}}</strong> </div>
+    <div class="col"></div>
+</div>
+<div class="row" *ngIf="notEmpty">
+    <div class="col"></div>
+    <div class="alert alert-danger" role="alert"> <strong>Must Have at least 4 letters</strong> </div>
+    <div class="col"></div>
+</div>
+</div>
+</div>

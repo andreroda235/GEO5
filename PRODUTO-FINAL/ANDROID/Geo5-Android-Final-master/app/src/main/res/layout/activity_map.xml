@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapActivity"
+    android:animateLayoutChanges="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/colorPrimaryDark">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="15dp">
+
+                <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:context=".MapsActivity" />
+
+                <ImageView
+                    android:id="@+id/ic_gps"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_gps"/>
+
+                <RelativeLayout
+                    android:id="@+id/walking_mode_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/ic_gps"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/circle_outline"
+                    android:src="@drawable/ic_simple_path">
+
+                    <ImageView
+                        android:id="@+id/walking_mode_btn_image"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/ic_simple_path"
+                        android:onClick="walkMode"/>
+
+                </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/operations_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:animateLayoutChanges="true">
+
+                    <RelativeLayout
+                        android:id="@+id/menu_items_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+
+                    <RelativeLayout
+                        android:id="@+id/ic_new_general_path_btn_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/custom_item_select_layout">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="New Path"
+                            android:textColor="@color/white"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="12dp"
+                            android:layout_toRightOf="@+id/new_path_generic_image"/>
+
+                        <RelativeLayout
+                            android:id="@+id/new_path_generic_image"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/circle_outline"/>
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:id="@+id/new_path_generic_btn"
+                                android:scaleType="centerCrop"
+                                android:layout_centerInParent="true"
+                                android:backgroundTint="@color/colorPrimaryDark"
+                                android:background="@drawable/ic_new_general_path_btn"/>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/ic_my_paths_btn_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/ic_new_general_path_btn_layout"
+                        android:background="@drawable/custom_item_select_layout">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="My Paths"
+                            android:textColor="@color/white"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="12dp"
+                            android:layout_toRightOf="@+id/my_paths_image"/>
+
+                        <RelativeLayout
+                            android:id="@+id/my_paths_image"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/circle_outline"/>
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:id="@+id/mt_paths_btn"
+                                android:scaleType="centerCrop"
+                                android:layout_centerInParent="true"
+                                android:backgroundTint="@color/washed_blue"
+                                android:background="@drawable/ic_path_history"/>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="gone"
+                    android:id="@+id/simple_path_layout">
+
+                    <RelativeLayout
+                        android:id="@+id/from_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="70dp"
+                        android:background="@drawable/custom_tex_input">
+
+                        <EditText
+                            android:id="@+id/from_layout_search_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="60dp"
+                            android:hint="From"
+                            android:imeOptions="actionDone"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/simple_add_marker_1"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/ic_add_marker"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:backgroundTint="#DC143C"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/to_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/from_layout"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="70dp"
+                        android:background="@drawable/custom_tex_input">
+
+                        <EditText
+                            android:id="@+id/to_layout_search_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="60dp"
+                            android:hint="To"
+                            android:imeOptions="actionDone"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/simple_add_marker_2"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/ic_add_marker"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:backgroundTint="#0000CD"/>
+
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/go_button"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/custom_button"
+                        android:scaleType="centerCrop"
+                        android:text="GO!"
+                        android:elevation="0dp"
+                        ></Button>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/waypoint_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true">
+
+
+                    <RelativeLayout
+                        android:layout_width="198dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/waypoint_layout_search_bar"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp">
+
+                        <Button
+                            android:id="@+id/add_marker"
+                            android:layout_width="87dp"
+                            android:layout_height="59dp"
+                            android:background="@drawable/custom_tex_input"
+                            android:text="Save Marker!"
+                            android:textColor="@color/white"
+                            android:backgroundTint="#DC143C"/>
+
+                        <Button
+                            android:id="@+id/create_path"
+                            android:layout_width="87dp"
+                            android:layout_height="59dp"
+                            android:layout_marginLeft="25dp"
+                            android:layout_toRightOf="@+id/add_marker"
+                            android:background="@drawable/custom_tex_input"
+                            android:text="Create Path"
+                            android:backgroundTint="#0000CD"
+                            android:textColor="@color/white" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/waypoint_layout_search_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="42dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="42dp"
+                        android:background="@drawable/custom_tex_input">
+
+                        <EditText
+                            android:id="@+id/waypoint_layout_search_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="60dp"
+                            android:hint="Waypoint"
+                            android:imeOptions="actionDone"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/waypoint_add_marker"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/ic_add_marker"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:backgroundTint="#DC143C"/>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/path_tracking_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_centerInParent="true">
+
+                    <RelativeLayout
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/play_button_outline"
+                        android:id="@+id/play_stop"
+                        android:layout_centerHorizontal="true">
+
+                    <ImageView
+                        android:id="@+id/track_draw_src"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_draw_track"
+                        android:textColor="#DC143C"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/play_button_outline"
+                        android:id="@+id/pause_resume"
+                        android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/pause_resume_src"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_pause"
+                        android:textColor="#DC143C"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/play_button_outline"
+                        android:id="@+id/choose_time"
+                        android:visibility="gone">
+
+                       <TextView
+                           android:id="@+id/choose_time_text"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="60s"
+                           android:textSize="26dp"
+                           android:textStyle="bold"
+                           android:gravity="center"
+                           android:layout_centerInParent="true"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/path_menu_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <ScrollView
+                android:id="@+id/path_scroll_menu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="20dp"
+                android:background="@drawable/scroll_layout">
+
+                <LinearLayout
+                    android:id="@+id/path_scroll_menu_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="30dp"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+            </ScrollView>
+
+            <RelativeLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/circle_outline"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp">
+
+            <Button
+                android:id="@+id/path_close_menu"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_close" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/path_form_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/custom_tex_input">
+
+            <LinearLayout
+                android:id="@+id/path_form_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="20dp"
+                android:visibility="gone">
+
+                <RadioGroup
+                    android:id="@+id/radio_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                   <RadioButton
+                        android:id="@+id/radio_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="pathFormClicks"/>
+
+                   <LinearLayout
+                       android:orientation="vertical"
+                       android:layout_width="wrap_content"
+                       android:layout_height="match_parent">
+
+                       <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Simple Path"
+                            android:textStyle="bold"/>
+                       <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Create a simple path with only 2 locations." />
+
+                   </LinearLayout>
+
+
+                    <RadioButton
+                        android:id="@+id/radio_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="pathFormClicks"/>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Waypoints"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Create a path between 2 locations with waypoints in between." />
+
+                    </LinearLayout>
+
+
+
+                    <RadioButton
+                        android:id="@+id/radio_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="pathFormClicks"/>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Track Yourself"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Create a path by tracking yourself in a customizable time interval." />
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true">
+
+                        <Button
+                            android:id="@+id/next_form_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="30dp"
+                            android:background="@drawable/custom_tex_input"
+                            android:backgroundTint="@color/colorPrimaryDark"
+                            android:text="Next"
+                            android:onClick="pathFormClicks"
+                            android:textColor="@color/white"/>
+
+                        <Button
+                            android:id="@+id/cancel_form_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/custom_tex_input"
+                            android:backgroundTint="@color/colorPrimaryDark"
+                            android:text="Cancel"
+                            android:onClick="pathFormClicks"
+                            android:textColor="@color/white"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/path_form_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="20dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Path Title:"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="5dp"/>
+
+                    <EditText
+                        android:id="@+id/path_title_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:background="@drawable/custom_tex_input"
+                        android:backgroundTint="#FFEEEEEE"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(Optional) Path Description:"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="5dp" />
+
+                    <EditText
+                        android:id="@+id/path_description_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="140dp"
+                        android:background="@drawable/custom_tex_input"
+                        android:backgroundTint="#FFEEEEEE"
+                        android:scrollbars = "vertical"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true">
+
+                            <Button
+                                android:id="@+id/confirm_form_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="30dp"
+                                android:background="@drawable/custom_tex_input"
+                                android:backgroundTint="@color/colorPrimaryDark"
+                                android:text="Confirm"
+                                android:onClick="pathFormClicks"
+                                android:textColor="@color/white"/>
+
+                            <Button
+                                android:id="@+id/cancel_form_button2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/custom_tex_input"
+                                android:backgroundTint="@color/colorPrimaryDark"
+                                android:text="Cancel"
+                                android:onClick="pathFormClicks"
+                                android:textColor="@color/white"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/time_picker_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:layout_marginVertical="8dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            android:background="@drawable/custom_tex_input">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pick a time Interval:"/>
+
+            <NumberPicker
+                android:id="@+id/time_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/time_picker_confirm_btn"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirm"
+                android:textColor="@color/white"
+                android:background="@drawable/custom_tex_input"
+                android:backgroundTint="@color/colorPrimaryDark" />
+
+
+        </LinearLayout>
+
+        </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,26 @@
+<ngb-accordion [activeIds]="activeIds">
+    <ngb-panel id="id12">
+        <ng-template ngbPanelHeader>
+            {{direction.title}}
+                <button ngbPanelToggle class="btn btn-sm btn-outline-primary ml-2" (click)="showHide()">Show | Hide</button>
+                <button type="button" class="btn btn-sm btn-outline-danger ml-2" (click)="delete(direction)">Delete</button>
+        </ng-template>
+
+        <ng-template ngbPanelContent>
+            
+            <div [ngClass]="setClasses()" *ngIf="!isRequestError">
+                    <p> {{direction.description}} </p>
+                    <p> It starts in Coordinates: {{direction.origin.lat}} & {{direction.origin.lng}}</p>
+                    <p>And end in Coordinates: {{direction.destination.lat}} & {{direction.destination.lng}}</p>
+                    <button type="button" class="btn btn-primary"(click)="addtoFavorites(direction)" >Add To Favorites</button>
+                         
+            </div>
+            <div *ngIf="isRequestError">
+                <div class="alert alert-danger" role="alert">
+                    <strong>Failed add to Favorites</strong>
+                </div>
+            </div>
+
+        </ng-template>
+    </ngb-panel>
+</ngb-accordion>

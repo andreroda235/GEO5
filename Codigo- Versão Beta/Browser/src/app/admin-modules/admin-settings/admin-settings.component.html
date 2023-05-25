@@ -1,0 +1,83 @@
+<nb-card>
+    <nb-card-header><h2><b>Admin Settings:</b></h2></nb-card-header>
+    <nb-card-body>
+      <form (ngSubmit)="onSubmit()">
+
+        <h3>Update Admin Info:</h3>
+        <div class="full-name-inputs">          
+            <mat-form-field appearance="simple">
+            <mat-label>Enter your name update</mat-label>
+            <input type="text" matInput matInput #input maxlength="30" placeholder="Enter your name update" id="userName">
+            <mat-hint align="end">{{input.value?.length || 0}}/30</mat-hint>
+            <mat-error *ngIf="nameControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>          
+        </div>
+
+        <div class="email-container">
+            <h4>Email:</h4>
+            <mat-form-field appearance="simple">
+            <mat-label>Enter your new email</mat-label>
+            <input type ="text" matInput placeholder="Enter your new email" id="userEmail" [(ngModel)]="userInput.user_email" name="email" [formControl]="emailControl">
+            <mat-error *ngIf="emailControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="other-inputs">
+            <mat-form-field appearance="simple">
+            <mat-label>Enter your password update</mat-label>
+            <input type="text" matInput placeholder="Enter your new password" id="userPassword" [(ngModel)]="userInput.user_password" name="password" [formControl]="passControl">
+            <mat-error *ngIf="passControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="other-inputs">              
+            <h4>Birthday</h4>   
+            <mat-form-field appearance = "simple" color="blue">
+            <mat-label>Enter your Birthday update</mat-label>
+            <input matInput [matDatepicker]="picker1" [formControl]="birthdayControl">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+        </div>
+        
+        <h4>Address Info</h4>
+        <div class="adress-inputs">
+            <mat-form-field appearance="simple">
+            <mat-label>Enter your new address street</mat-label>
+            <input type="text" matInput placeholder="Enter the new street" id="userStreet" [(ngModel)]="userInput.user_street" name="street" [formControl]="streetControl">
+            <mat-error *ngIf="emailControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>            
+        </div>
+
+        <div class="adress-inputs">
+          <mat-form-field appearance="simple">
+          <mat-label>Enter your new address Zip-Code</mat-label>
+          <!-- Utilizar quando tivermos zip-code guardado na BD-->
+          <!--<input type="text" matInput placeholder="Enter your new zip-code" id="userZipcode" [(ngModel)]="userInput.user_zipcode" name="zipcode" [formControl]="zipcodeControl">-->
+          <input matInput #input maxlength="8" placeholder="Enter your new zip-code" [formControl]="zipcodeControl">
+          <mat-error *ngIf="zipcodeControl.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="adress-inputs">
+            <mat-form-field appearance="simple">
+            <mat-label>Enter your new address City</mat-label>
+            <input type="text" matInput placeholder="Enter your new city" id="userCity" [(ngModel)]="userInput.user_place" name="city" [formControl]="placeControl">
+            <mat-error *ngIf="placeControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="adress-inputs">
+            <mat-form-field appearance="simple">
+            <mat-label>Enter your new address country</mat-label>
+            <input type="text" matInput placeholder="Enter your new country" id="userCountry" [(ngModel)]="userInput.user_country" name="country" [formControl]="countryControl">
+            <mat-error *ngIf="countryControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+        <p>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!(nameControl.valid || birthdayControl.valid || passControl.valid || emailControl.valid || streetControl.valid || zipcodeControl.valid || placeControl.valid || countryControl.valid)">Submit</button>
+      </p>            
+      <p></p>
+      </form>
+    </nb-card-body>
+  </nb-card>

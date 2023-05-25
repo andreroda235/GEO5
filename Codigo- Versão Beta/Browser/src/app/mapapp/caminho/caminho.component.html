@@ -1,0 +1,36 @@
+<div class="card-body">
+    
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-outline-success" (click)="getAllMyRoutes()" >{{'RoutFav'|translate}}</button>
+            </div>
+            <div class="col">
+            <button class="btn btn-outline-danger"  >Limpar Pesquisa</button>
+            </div>
+        </div>    
+   <br>
+    <div class="row">
+     <!--   <h5 class="card-title">{{'RoutWellcome'|translate}}</h5>-->        
+        
+        <div class="col-12">
+        <form class="form-inline mr-auto">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          </form>
+        </div>
+         
+    </div><br>
+<div *ngIf="loadingFav">
+    <div class="alert alert-success" role="alert"> <strong>{{'RFavLoad'|translate}}</strong> </div>
+</div>
+<div *ngIf="isFavError">
+    <div class="alert alert-danger" role="alert"> <strong>{{'RFavFailLoad'|translate}}</strong> </div>
+</div>
+<div>
+    <app-direction
+    *ngFor="let direction of directions"
+    [direction]="direction"
+    (deleteDir)=deleteDir($event)
+    >
+</app-direction>
+</div>
+</div>

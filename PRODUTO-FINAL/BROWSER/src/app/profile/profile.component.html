@@ -1,0 +1,86 @@
+<mat-card class="profile-card">
+
+    <mat-card-header>
+        <img src = "https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png">
+        <mat-card-title>Username</mat-card-title>
+        <mat-card-subtitle>Ranking</mat-card-subtitle>
+    </mat-card-header>  
+    
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+        <mat-tab-group>
+            <mat-tab> 
+
+                <ng-template mat-tab-label>
+                    <mat-icon class="tab-icon">thumb_up</mat-icon>
+                    About
+                </ng-template>
+
+                <!-- Content tab -->
+                <h3><b>Personal Information</b></h3>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4><u>Name:</u> User name</h4>
+                        <h4><u>Email:</u> email do user</h4>
+                        <h4><u>Phone:</u> -</h4>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <h4><u>Street:</u> email do user</h4>
+                        <h4><u>Place:</u> email do user</h4>
+                        <h4><u>City:</u> email do user</h4>                
+                        <h4><u>Country:</u> email do user</h4>
+                    </div>
+                </div>
+            </mat-tab>
+
+            <mat-tab>
+
+                <ng-template mat-tab-label>
+                    <mat-icon class="tab-icon">pin_drop</mat-icon>
+                    Routes
+                </ng-template>
+                <h3><b>Routes Resume</b></h3>
+               
+                <h4>Number of Routs: </h4>
+                <h4>Avarage difficulty of routs</h4>
+
+                <mat-divider></mat-divider>
+                <!--Routes page-->
+                <app-routs></app-routs>
+            </mat-tab>
+
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon class="tab-icon">insert_photo</mat-icon>
+                    Gallery
+                </ng-template>
+                <!-- Gallery page -->
+                <app-gallery></app-gallery>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon class="tab-icon">developer_board</mat-icon>
+                    Rocks Collection
+                </ng-template>
+                <!-- Rock Throphy Page -->
+                <app-rock-trophy></app-rock-trophy>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon class="tab-icon">settings</mat-icon>
+                    Settings
+                </ng-template>
+                <!-- Settings Page -->
+                <app-settings></app-settings>
+            </mat-tab>
+    </mat-tab-group>
+            
+    </mat-card-content>
+
+    <mat-card-actions>
+
+    </mat-card-actions>
+    
+  </mat-card>

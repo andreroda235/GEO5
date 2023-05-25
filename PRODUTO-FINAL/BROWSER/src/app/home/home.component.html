@@ -1,0 +1,37 @@
+<div>
+  <div class="comps">
+  <img class="img" src = "../../assets/homepage.jpg">
+</div>
+  <div class="maincomp">
+    <div clas="row">
+      <span class="form-group f_ixed">
+        <select
+            id="langSelected" 
+            class="form-control f_ixed" 
+            #selectedLang 
+            (change)="switchLang(selectedLang.value)"
+            >
+          <option *ngFor="let language of translate.getLangs()" 
+            [value]="language"
+            [selected]="language === translate.currentLang">
+            {{ language }}
+          </option>
+        </select>
+      </span>
+
+      <h1>{{'Sitetitle1' | translate}}</h1>
+
+      <p>{{'TextBody1' | translate}}</p>
+      <p>{{'TextBody2' | translate}}</p>
+      <p>{{'TextBody3' | translate}}</p>
+      <p>{{'TextBody4' | translate}}</p>
+
+      <h1>{{'Sitetitle2' | translate}}</h1>
+      <h2>{{'Subtitle' | translate}}</h2>
+      <p>{{'TextBody5' | translate}}</p>
+      <p>{{'TextBody6' | translate}}</p><br><br><br>
+
+    </div>
+  </div>
+
+</div>

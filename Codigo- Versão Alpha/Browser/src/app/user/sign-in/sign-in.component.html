@@ -1,0 +1,32 @@
+<div class="middle">
+  <div class="maincomp">
+      <ul class="tabs  primary-nav">
+          <li class="tabs__item">
+              <a class="tabs__link" [routerLink]="'/signin'"routerLinkActive='active'>{{'SignIn' | translate}}</a>
+          </li>
+          <li class="tabs__item">
+              <a class="tabs__link" [routerLink]="'/signup'" routerLinkActive='active'>{{'SignUp' | translate}}</a> 
+          </li>
+      </ul>
+      <div class="body">
+          <div>
+<form #loginForm="ngForm" class="form-4" (ngSubmit)="OnSubmit(UserName.value,Password.value)">
+    <br>
+      <div class="w-input"> 
+        <input class="input" type="text" #UserName ngModel name="UserName" placeholder="{{'UserName'|translate}}" required>
+      </div>
+  <p></p>
+    <div class="w-input">   
+       <input class="input" type="password" #Password ngModel name="Password" placeholder="{{'Password'|translate}}" required>
+    </div>
+  <p></p>
+         <div class="form-btn">
+           <button class="btn" [disabled]="!loginForm.valid"  type="submit">{{'SignIn' | translate}}</button>
+         </div>
+         <br>
+ </form>
+</div>
+</div>
+</div>
+            
+</div>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/pegada1">
+
+        <RelativeLayout
+            android:id="@+id/outlined_profile"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dp">
+
+            <ImageView
+                android:id="@+id/outliner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circle_outline" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:id="@+id/profile_pic"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"/>
+
+        </RelativeLayout>
+
+    <TextView
+        android:id="@+id/profile_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/outlined_profile"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:text="Username"
+        android:textColor="@color/layout_washed_grey"
+        android:textSize="26sp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_username"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:id="@+id/ic_profile_btn_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_item_select_layout"
+            android:backgroundTint="@color/white"
+            android:onClick="attemptProfilePage">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="12dp"
+                android:layout_toRightOf="@+id/profile_image" />
+
+            <RelativeLayout
+                android:id="@+id/profile_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/circle_outline"/>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/profile_btn"
+                    android:scaleType="centerCrop"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_profile"/>
+
+        </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/ic_path_manager_btn_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/ic_profile_btn_layout"
+                android:background="@drawable/custom_item_select_layout"
+                android:backgroundTint="@color/white"
+                android:onClick="attemptPathManager">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Routes"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_toRightOf="@+id/path_manager_image" />
+
+                <RelativeLayout
+                    android:id="@+id/path_manager_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/circle_outline"/>
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/path_manager_btn"
+                        android:scaleType="centerCrop"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/ic_goto"
+                        android:backgroundTint="@color/colorPrimaryDark"/>
+
+                </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ic_logout_btn_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/ic_profile_btn_layout"
+            android:background="@drawable/custom_item_select_layout"
+            android:backgroundTint="@color/white"
+            android:layout_centerHorizontal="true"
+            android:onClick="attemptLogout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="12dp"
+                android:layout_toRightOf="@+id/logout_image" />
+
+            <RelativeLayout
+                android:id="@+id/logout_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/circle_outline"/>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/logout_btn"
+                    android:scaleType="centerCrop"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_logout"
+                    android:backgroundTint="@color/colorPrimaryDark"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    </RelativeLayout>

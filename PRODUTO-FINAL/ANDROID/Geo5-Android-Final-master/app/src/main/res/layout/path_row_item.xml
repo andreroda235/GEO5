@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/path_item_layout"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@drawable/custom_tex_input"
+            android:layout_marginBottom="12dp">
+
+        <ImageView
+            android:id="@+id/path_item_path_type_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_simple_path"
+            android:tint="@color/colorPrimaryDark"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="80dp"
+            android:layout_marginVertical="8dp">
+
+            <TextView
+                android:id="@+id/path_item_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:textSize="20dp"
+                android:maxLines="1"
+                android:autoSizeTextType="uniform"
+                android:scrollbars="horizontal"/>
+
+            <TextView
+                android:id="@+id/path_item_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/path_item_info"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ic_details"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_marginLeft="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/path_buttons_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/path_item_visibile"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_visible"
+                android:layout_marginRight="12dp"
+                android:backgroundTint="@color/colorPrimaryDark"/>
+
+            <Button
+                android:id="@+id/path_item_invisibile"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_invisible"
+                android:layout_marginRight="12dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/path_item_goto"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_goto"
+                android:layout_marginRight="12dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                />
+
+            <Button
+                android:id="@+id/path_item_delete"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/ic_remove"
+                android:backgroundTint="@color/colorPrimaryDark"
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
